@@ -758,23 +758,23 @@
  <script>AV.initialize("4CsESGG1PeS15XSi9Poa4vEL-gzGzoHsz", "NgnOMCnGjL7T6xxjLlQcRAxO");</script>
  <script>
  function showTime(Counter) {
+    console.warn('~欢迎光临我的博客~,Email:binzhizhu@gmail.com ')
  	var query = new AV.Query(Counter);
  	$(".leancloud_visitors").each(function() {
  		var url = $(this).attr("id").trim();
  		query.equalTo("url", url);
  		query.find({
  			success: function(results) {
- 			    console.log('res',results)
+                console.warn('--这里是阅读统计代码-- by --leancloud--')
  				if (results.length == 0) {
  					var content = $(document.getElementById(url)).text() + ': 0';
  					$(document.getElementById(url)).text(content);
  					return;
  				}
-                console.warn('--这里是阅读统计代码--')
  				for (var i = 0; i < results.length; i++) {
  					var object = results[i];
- 					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
- 					console.log('content',content)
+ 					console.log('obj',object)
+ 					var content = $(document.getElementById(url)).text()  + object.attributes.time;
  					$(document.getElementById(url)).text(content);
  				}
  			},
