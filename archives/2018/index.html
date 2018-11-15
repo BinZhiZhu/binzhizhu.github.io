@@ -108,7 +108,7 @@
 <meta name="description" content="纵使你脚下有一千名挑战者，那就把我算作第一千零一名。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="BinZhiZhu&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://binzhizhu.github.io/archives/2018/index.html">
 <meta property="og:site_name" content="BinZhiZhu&#39;s Blog">
 <meta property="og:description" content="纵使你脚下有一千名挑战者，那就把我算作第一千零一名。">
 <meta property="og:locale" content="zh-Hans">
@@ -144,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/">
+  <link rel="canonical" href="http://binzhizhu.github.io/archives/2018/">
 
 
 
@@ -836,8 +836,7 @@
  				}
  				for (var i = 0; i < results.length; i++) {
  					var object = results[i];
- 					console.log('obj',object)
- 					var content = $(document.getElementById(url)).text()  + ':' + object.attributes.time;
+ 					var content = $(document.getElementById(url)).text() + object.attributes.time;
  					$(document.getElementById(url)).text(content);
  					return;
  				}
