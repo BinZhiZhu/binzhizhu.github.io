@@ -773,7 +773,7 @@
  				for (var i = 0; i < results.length; i++) {
  					var object = results[i];
  					console.log('obj',object)
- 					var content = $(document.getElementById(url)).text()  + object.attributes.time;
+ 					var content = $(document.getElementById(url)).text()  + object.attributes['time'];
  					$(document.getElementById(url)).text(content);
  				}
  			},
