@@ -933,6 +933,7 @@
  					console.log('obj',object)
  					var content = $(document.getElementById(url)).text()  + ':' + object.attributes.time;
  					$(document.getElementById(url)).text(content);
+ 					return;
  				}
  			},
  			error: function(object, error) {
