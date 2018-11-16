@@ -392,7 +392,6 @@
       
         
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  今晚在完善阅读统计的功能是时候发现一个很诡异的问题，我们一起来探讨一下。上一篇文章大概有阐述阅读统计功能的搭建，所有这里我就不多说了。<br>  利用leancloud接完统计功能后，当前这个hexo版本我会发现首页的阅读数量的样式有点诡异，大致如下：<br>  两种情况： 1：<em>阅读次数::9:9</em>   :2：<em>阅读次数::99</em><br>  实际上这个时候我们的阅读量只有9而已，正常来说应该这样显示：  <em>阅读次数：9</em><br>  于是我忍不住摁住F12一探究竟,大致可以知道阅读次数那一块的元素是js直接赋值的，所以我就去找了一下阅读统计的部分的相关js，我比较粗暴，直接定位全局搜索一波 <em>leancloud_visitors</em>  相关的文件<br>  这是我们可以找到一个路径为 <em>themes\next\layout_third-party\analytics\lean-analytics.swig</em> 的文件，打开发现就是这部分js处理leancloud的阅读数量统计。 </p>
-<p> <img src="/images/11-16.jpg" alt="今天的我"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/11/16/解决Hexo阅读次数样式诡异的问题/#more" rel="contents">
