@@ -2902,9 +2902,9 @@ pre .javascript .function {
 .sidebar-inner.affix-bottom {
   position: absolute;
 }
-/*.site-overview {*/
-  /*text-align: left;*/
-/*}*/
+.site-overview {
+  text-align: left;
+}
 .site-author:before,
 .site-author:after {
   content: " ";
