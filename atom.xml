@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://binzhizhu.github.io/"/>
-  <updated>2018-11-17T06:30:58.908Z</updated>
+  <updated>2018-11-21T15:36:58.816Z</updated>
   <id>http://binzhizhu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nginx 配置访问Access Denied</title>
+    <link href="http://binzhizhu.github.io/2018/11/21/Nginx-%E9%85%8D%E7%BD%AE%E8%AE%BF%E9%97%AEAccess-Denied/"/>
+    <id>http://binzhizhu.github.io/2018/11/21/Nginx-配置访问Access-Denied/</id>
+    <published>2018-11-21T15:36:27.000Z</published>
+    <updated>2018-11-21T15:36:58.816Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  前段时间双11阿里云搞活动，于是便忍痛（花呗）入手了一台1核2G、40G系统盘、1M带宽的云服务ECS服务器。想着自己平时开发玩玩以及搭建自己的博客，所以就很爽快的买了，还顺便在阿里云买了一个.top的域名。<br>也就是博客现在的这个域名，域名申请备案后，大概半个月左右收到备案通过的通知，于是我就开始解析域名到服务器，同时也把自己的项目在服务器搭建好。<br>我是直接搭wget一键安装LNMP环境的，github clone下来，这个时候心想着配置一下虚拟域名应该就美滋滋了。</p><h3 id="搭建过程的遇到的问题"><a href="#搭建过程的遇到的问题" class="headerlink" title="搭建过程的遇到的问题"></a>搭建过程的遇到的问题</h3><h4 id="访问解析的域名连接重置"><a href="#访问解析的域名连接重置" class="headerlink" title="访问解析的域名连接重置"></a>访问解析的域名连接重置</h4><p>  我刚开始以为是域名解析的问题，因为访问域名是一直显示正在连接，最后显示连接重置，也就是说无法连接到服务器，于是我问了一下其他朋友，在阿里云服务器添加了安全组，默认开启所有连接。<br>其实开启http 80、https就可以了，其他看自己的需求，添加之后就不会显示连接重置了。</p><h4 id="访问提示Access-Denied"><a href="#访问提示Access-Denied" class="headerlink" title="访问提示Access Denied"></a>访问提示Access Denied</h4>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">access denied</span><br></pre></td></tr></table></figure><p>  mlgj… 难受，解决了一个问题又出现了另外一个问题，访问项目提示access denied。我前前后后检查过Nginx的配置，真的觉得没有问题…。Nginx 提示successful，重启也正常。<br>最让我觉得奇怪的是，访问域名提示access denied 的同时，可以看到网页的logo 已经访问到我项目的logo了，但是就完全没有任何反应，我自己去看Nginx日志也没相应的报错信息，我真的不知道该如何排查。</p><h4 id="重新clone项目部署"><a href="#重新clone项目部署" class="headerlink" title="重新clone项目部署"></a>重新clone项目部署</h4><p>  我只好重新clone项目 重新认真部署一次 看看效果如何 未完待续。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;  前段时间双11阿里云搞活动，于是便忍痛（花呗）入手了一台1核2G、40G系统盘、1M带宽的云服务ECS服务器。想着自己平时开发玩玩以及搭
+      
+    
+    </summary>
+    
+      <category term="Nginx" scheme="http://binzhizhu.github.io/categories/Nginx/"/>
+    
+    
+      <category term="Nginx" scheme="http://binzhizhu.github.io/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue.js结合ElementUI的（分页）进行前端分页</title>
