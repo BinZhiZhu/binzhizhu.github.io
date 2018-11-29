@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://binzhizhu.github.io/"/>
-  <updated>2018-11-29T16:35:10.639Z</updated>
+  <updated>2018-11-29T16:58:24.307Z</updated>
   <id>http://binzhizhu.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案</title>
+    <link href="http://binzhizhu.github.io/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://binzhizhu.github.io/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/</id>
+    <published>2018-11-29T16:45:20.000Z</published>
+    <updated>2018-11-29T16:58:24.307Z</updated>
+    
+    <content type="html"><![CDATA[<p>##前言<br>  最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &apos;support_desk.mod_users_groups.group_id&apos; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure></p><p>  谷歌翻译一下大概意思：</p><p>  <strong>SELECT列表的表达式＃1不在GROUP BY子句中，并且包含非聚合列’support_desk.mod_users_groups.group_id’，它在功能上不依赖于GROUP BY子句中的列; 这与sql_mode = only_full_group_by不兼容</strong></p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>  实锤是因为MySQL版本的原因，我去StackOverflow查了相关的解决方案，最终还是解决了这个问题。</p><ul><li>cd /etc/my.cnf 或者etc/mysql/my.cnf 不清楚路径可以 whereis my.cnf 打印pwd路径</li><li>vim my.cnf</li><li><p>添加sql_mode</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">    sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure></li><li><p>esc :wq 报错退出</p></li><li><p>重启一下mysql服务 sudo service mysql restart / 或者/etc/init.d/mysql restart等等都可以</p></li><li><p>除了上面这种方法也可以直接连接mysql 通过mysql-&gt;set …[sql_mode] 类似</p><p>这样问题就解决了，最后贴一下解决方案的地址</p><p>[stackoverflow]：<a href="https://stackoverflow.com/questions/34115174/error-related-to-only-full-group-by-when-executing-a-query-in-mysql" target="_blank" rel="noopener">https://stackoverflow.com/questions/34115174/error-related-to-only-full-group-by-when-executing-a-query-in-mysql</a></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;##前言&lt;br&gt;  最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为：&lt;br&gt;  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="http://binzhizhu.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="mysql" scheme="http://binzhizhu.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>探讨Tencent/weui.js之picker组件库</title>
