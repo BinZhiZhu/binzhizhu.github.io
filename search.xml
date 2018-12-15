@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[高仿快递智能识别地址功能]]></title>
+    <url>%2F2018%2F12%2F14%2F%E9%AB%98%E4%BB%BF%E5%BF%AB%E9%80%92%E6%99%BA%E8%83%BD%E8%AF%86%E5%88%AB%E5%9C%B0%E5%9D%80%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[前言 这周接到一个项目功能，大致就类似快递类寄件智能识别收货地址，只需要复制粘贴地址信息，点击完成就直接填写到了对应的地址信息的输入框。 我简单的举个例子吧： 小埋13000000000广东省广州市天河区体育西路xxx号 上面就会自动识别为： 收货人：小埋 电话：13000000000 省市区：广东省 广州市 天河区 地址：体育西路xxx号这样就认为是智能识别了，不需要一个一个去手动填写，只需要复制粘贴物流地址信息即可。说是这样说，但实际上内心是一万只曹尼玛 ^ ^ 前期准备 我开始是再Google搜索有没有相关的第三方SDK，一般都会这样去思考，只需要调第三方sdk接口即可，但是实际上会有一个问题：地址库！！！ 现公司内部使用的地址库是腾讯开发的Jquery Weui组件库中的cityPicker，也就是填写省市区的地址选择器，所以地址库不统一的话是一个硬伤。 gayHub 地址 [smart-parse]: https://github.com/BinZhiZhu/smart-parse]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案]]></title>
     <url>%2F2018%2F11%2F30%2Fmysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[##前言 最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为： 1Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &apos;support_desk.mod_users_groups.group_id&apos; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by 谷歌翻译一下大概意思： SELECT列表的表达式＃1不在GROUP BY子句中，并且包含非聚合列’support_desk.mod_users_groups.group_id’，它在功能上不依赖于GROUP BY子句中的列; 这与sql_mode = only_full_group_by不兼容 解决方案 实锤是因为MySQL版本的原因，我去StackOverflow查了相关的解决方案，最终还是解决了这个问题。 cd /etc/my.cnf 或者etc/mysql/my.cnf 不清楚路径可以 whereis my.cnf 打印pwd路径 vim my.cnf 添加sql_mode 12[mysqld] sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION esc :wq 报错退出 重启一下mysql服务 sudo service mysql restart / 或者/etc/init.d/mysql restart等等都可以 除了上面这种方法也可以直接连接mysql 通过mysql-&gt;set …[sql_mode] 类似 这样问题就解决了，最后贴一下解决方案的地址 [stackoverflow]：https://stackoverflow.com/questions/34115174/error-related-to-only-full-group-by-when-executing-a-query-in-mysql]]></content>
