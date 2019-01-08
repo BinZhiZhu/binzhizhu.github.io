@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://binzhizhu.github.io/"/>
-  <updated>2018-12-15T13:13:59.914Z</updated>
+  <updated>2019-01-08T11:11:18.503Z</updated>
   <id>http://binzhizhu.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>msyql多表查询sum()重复累加问题</title>
+    <link href="http://binzhizhu.github.io/2019/01/08/msyql%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2sum-%E9%87%8D%E5%A4%8D%E7%B4%AF%E5%8A%A0%E9%97%AE%E9%A2%98/"/>
+    <id>http://binzhizhu.github.io/2019/01/08/msyql多表查询sum-重复累加问题/</id>
+    <published>2019-01-08T10:22:17.000Z</published>
+    <updated>2019-01-08T11:11:18.503Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  今天产品那边反馈了一个bug：部分订单金额（筛选场景）统计的订单总额不对。我就觉得好奇了，咋会部分就不对呢？然后我就开始场景复现了，果真复现了，我们一起来看下这个问题。</p><h3 id="场景复现"><a href="#场景复现" class="headerlink" title="场景复现"></a>场景复现</h3><p>1.搜索订单（一个订单多个商品），这样容易复现，订单号：SH20190107120514818483。<br>2.该订单购买了两个商品，A商品100元，B商品0元，合计是100元。<br>3.此时订单数：1 ;订单金额：200</p><p><img src="/blogimages/2018-1-8-2.png" alt="1"></p><p><img src="/blogimages/2018-1-8-1.png" alt="2"></p><h3 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h3><p>表：订单表（A）：shop_order 订单商品表（B）：shop_order_goods </p><p>mysql 代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT(o.id)) as count, ifnull(sum(o.price),0) as sumprice  FROM ims_new_shop_order o  left join ims_new_shop_order_refund r on r.id =o.refundid  left join ims_new_shop_member m on m.openid=o.openid  and m.uniacid =  o.uniacid left join ims_new_shop_member_address a on o.addressid = a.id  left join ims_new_shop_saler s on s.openid = o.verifyopenid and s.uniacid=o.uniacid left join ims_new_shop_member sm on sm.openid = s.openid and sm.uniacid=s.uniacid left join ims_new_shop_order_goods sog on sog.uniacid = o.uniacid and sog.orderid = o.id  left join ims_new_shop_goods sg on sg.uniacid = o.uniacid and sg.id = sog.goodsid   WHERE  o.uniacid = 1 and o.deleted=0 and o.isparent=0 and o.istrade=0  AND locate(&apos;SH20190107120514818483&apos;,o.ordersn)&gt;0  AND o.create_from_wxapp = 0</span><br></pre></td></tr></table></figure></p><p>问题：我们会发现A表左连接B表的时候是不排除一对多的，也就是A表一条订单对应B表多条记录，但实际上这个时候我们需要去sum的金额仅仅是A表的订单金额，关联B表有多少记录我们是不需要在乎的。这个时候相当于重复统计了A表的订单金额，其实是受到了B表的影响。</p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>  我们应该应该怎么处理：</p><p>  实际上我们只需要在A表连接B表的时候，B表单独子查询处理，因为我们需要##去重B表的重复记录##，所有需要对B表group by进行分组，这样的话就不会出现sum累计的问题了。</p><p> ##A left join (SELECT id,uniacid,orderid,goodsid FROM ims_new_shop_order_goods GROUP BY goodsid) ## AS sog on C##</p> <a id="more"></a><p>更改后代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT(o.id)) as count, ifnull(sum(o.price),0) as sumprice  FROM ims_new_shop_order o  left join ims_new_shop_order_refund r on r.id =o.refundid  left join ims_new_shop_member m on m.openid=o.openid  and m.uniacid =  o.uniacid left join ims_new_shop_member_address a on o.addressid = a.id  left join ims_new_shop_saler s on s.openid = o.verifyopenid and s.uniacid=o.uniacid left join ims_new_shop_member sm on sm.openid = s.openid and sm.uniacid=s.uniacid left join (SELECT id,uniacid,orderid,goodsid FROM ims_new_shop_order_goods GROUP BY goodsid) AS sog on sog.uniacid = o.uniacid and sog.orderid = o.id  left join ims_new_shop_goods sg on sg.uniacid = o.uniacid and sg.id = sog.goodsid   WHERE  o.uniacid = 1 and o.deleted=0 and o.isparent=0 and o.istrade=0  AND locate(&apos;SH20190107120514818483&apos;,o.ordersn)&gt;0  AND o.create_from_wxapp = 0</span><br></pre></td></tr></table></figure></p><p><img src="/blogimages/2018-1-8-3.png" alt="3"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;  今天产品那边反馈了一个bug：部分订单金额（筛选场景）统计的订单总额不对。我就觉得好奇了，咋会部分就不对呢？然后我就开始场景复现了，果真复现了，我们一起来看下这个问题。&lt;/p&gt;
+&lt;h3 id=&quot;场景复现&quot;&gt;&lt;a href=&quot;#场景复现&quot; class=&quot;headerlink&quot; title=&quot;场景复现&quot;&gt;&lt;/a&gt;场景复现&lt;/h3&gt;&lt;p&gt;1.搜索订单（一个订单多个商品），这样容易复现，订单号：SH20190107120514818483。&lt;br&gt;2.该订单购买了两个商品，A商品100元，B商品0元，合计是100元。&lt;br&gt;3.此时订单数：1 ;订单金额：200&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blogimages/2018-1-8-2.png&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blogimages/2018-1-8-1.png&quot; alt=&quot;2&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;定位问题&quot;&gt;&lt;a href=&quot;#定位问题&quot; class=&quot;headerlink&quot; title=&quot;定位问题&quot;&gt;&lt;/a&gt;定位问题&lt;/h3&gt;&lt;p&gt;表：订单表（A）：shop_order 订单商品表（B）：shop_order_goods &lt;/p&gt;
+&lt;p&gt;mysql 代码：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;SELECT COUNT(DISTINCT(o.id)) as count, ifnull(sum(o.price),0) as sumprice  FROM ims_new_shop_order o  left join ims_new_shop_order_refund r on r.id =o.refundid  left join ims_new_shop_member m on m.openid=o.openid  and m.uniacid =  o.uniacid left join ims_new_shop_member_address a on o.addressid = a.id  left join ims_new_shop_saler s on s.openid = o.verifyopenid and s.uniacid=o.uniacid left join ims_new_shop_member sm on sm.openid = s.openid and sm.uniacid=s.uniacid left join ims_new_shop_order_goods sog on sog.uniacid = o.uniacid and sog.orderid = o.id  left join ims_new_shop_goods sg on sg.uniacid = o.uniacid and sg.id = sog.goodsid   WHERE  o.uniacid = 1 and o.deleted=0 and o.isparent=0 and o.istrade=0  AND locate(&amp;apos;SH20190107120514818483&amp;apos;,o.ordersn)&amp;gt;0  AND o.create_from_wxapp = 0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;问题：我们会发现A表左连接B表的时候是不排除一对多的，也就是A表一条订单对应B表多条记录，但实际上这个时候我们需要去sum的金额仅仅是A表的订单金额，关联B表有多少记录我们是不需要在乎的。这个时候相当于重复统计了A表的订单金额，其实是受到了B表的影响。&lt;/p&gt;
+&lt;h3 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h3&gt;&lt;p&gt;  我们应该应该怎么处理：&lt;/p&gt;
+&lt;p&gt;  实际上我们只需要在A表连接B表的时候，B表单独子查询处理，因为我们需要##去重B表的重复记录##，所有需要对B表group by进行分组，这样的话就不会出现sum累计的问题了。&lt;/p&gt;
+&lt;p&gt; ##A left join (SELECT id,uniacid,orderid,goodsid FROM ims_new_shop_order_goods GROUP BY goodsid) ## AS sog on C##&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://binzhizhu.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>高仿快递智能识别地址功能</title>
