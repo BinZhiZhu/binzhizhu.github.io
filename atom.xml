@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://binzhizhu.github.io/"/>
-  <updated>2019-01-08T11:11:18.503Z</updated>
+  <updated>2019-01-14T10:45:19.338Z</updated>
   <id>http://binzhizhu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于yii-gii实现的一个批量生成模型测试的拓展工具</title>
+    <link href="http://binzhizhu.github.io/2019/01/14/%E5%9F%BA%E4%BA%8Eyii-gii%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E6%89%B9%E9%87%8F%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95%E7%9A%84%E6%8B%93%E5%B1%95%E5%B7%A5%E5%85%B7/"/>
+    <id>http://binzhizhu.github.io/2019/01/14/基于yii-gii实现的一个批量生成模型测试的拓展工具/</id>
+    <published>2019-01-14T10:34:22.000Z</published>
+    <updated>2019-01-14T10:45:19.338Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>  项目离不开业务，业务离不开需求，所以就离不开CURD。项目上线的时候，我们需要批量进行数据库迁移，这个时候我们需要确保migrate是万无一失的，能够百分百保证每个model的curd能够准确的执行，通常我们可以自行编写model的功能测试，确保curd的成功率，但是如果项目涉及很多model的话就很难受了，不可能一个一个去写测试，所以基于yii-gii这个拓展，自定义了一个批量生成模型测试的拓展。</p><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p> 这里不太想详细去介绍如何实现，深入了解yii-gii的原理基本都是没有问题的，自定义生成器，然后按照自己的预期写好生成器的model即可，这里贴下我的实现成果：</p><p> gayhub：<a href="https://github.com/BinZhiZhu/yii-curd-cest-gii" target="_blank" rel="noopener">https://github.com/BinZhiZhu/yii-curd-cest-gii</a></p><p><img src="/blogimages/2018-1-14-1.png" alt="1"><br><img src="/blogimages/2018-1-14-2.png" alt="2"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;场景&quot;&gt;&lt;a href=&quot;#场景&quot; class=&quot;headerlink&quot; title=&quot;场景&quot;&gt;&lt;/a&gt;场景&lt;/h2&gt;&lt;p&gt;  项目离不开业务，业务离不开需求，所以就离不开CURD。项目上线的时候，我们需要批量进行数据库迁移，这个时候我们需要确保migrate是万
+      
+    
+    </summary>
+    
+    
+      <category term="yii" scheme="http://binzhizhu.github.io/tags/yii/"/>
+    
+  </entry>
   
   <entry>
     <title>msyql多表查询sum()重复累加问题</title>
