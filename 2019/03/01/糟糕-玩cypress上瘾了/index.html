@@ -118,16 +118,17 @@
 
 
 
-<meta name="description" content="纵使你脚下有一千名挑战者，那就把我算作第一千零一名。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="BinZhiZhu&#39;s Blog">
-<meta property="og:url" content="http://binzhizhu.github.io/archives/2018/12/index.html">
+<meta name="description" content="玩 e2e cypress 上瘾了，你们前端项目一般如何测试？前言换了 Mac pro 不知不觉更喜欢深夜敲代码了，真的香！！！不知不觉已经快凌晨 4 点了，我带着困意还是打算发个帖子和大家共享一下我这几天琢磨的一些事情。本人其实是后端，但由于公司的发展与需求，开始着手维护前端项目，也一直在看 react （大佬可以带带我嘻）为了确保业务 flow 能够 stabling，最近公司前端项目在测试环">
+<meta property="og:type" content="article">
+<meta property="og:title" content="糟糕 玩cypress上瘾了">
+<meta property="og:url" content="http://binzhizhu.github.io/2019/03/01/糟糕-玩cypress上瘾了/index.html">
 <meta property="og:site_name" content="BinZhiZhu&#39;s Blog">
-<meta property="og:description" content="纵使你脚下有一千名挑战者，那就把我算作第一千零一名。">
+<meta property="og:description" content="玩 e2e cypress 上瘾了，你们前端项目一般如何测试？前言换了 Mac pro 不知不觉更喜欢深夜敲代码了，真的香！！！不知不觉已经快凌晨 4 点了，我带着困意还是打算发个帖子和大家共享一下我这几天琢磨的一些事情。本人其实是后端，但由于公司的发展与需求，开始着手维护前端项目，也一直在看 react （大佬可以带带我嘻）为了确保业务 flow 能够 stabling，最近公司前端项目在测试环">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-01T05:19:38.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BinZhiZhu&#39;s Blog">
-<meta name="twitter:description" content="纵使你脚下有一千名挑战者，那就把我算作第一千零一名。">
+<meta name="twitter:title" content="糟糕 玩cypress上瘾了">
+<meta name="twitter:description" content="玩 e2e cypress 上瘾了，你们前端项目一般如何测试？前言换了 Mac pro 不知不觉更喜欢深夜敲代码了，真的香！！！不知不觉已经快凌晨 4 点了，我带着困意还是打算发个帖子和大家共享一下我这几天琢磨的一些事情。本人其实是后端，但由于公司的发展与需求，开始着手维护前端项目，也一直在看 react （大佬可以带带我嘻）为了确保业务 flow 能够 stabling，最近公司前端项目在测试环">
 
 
 
@@ -157,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://binzhizhu.github.io/archives/2018/12/">
+  <link rel="canonical" href="http://binzhizhu.github.io/2019/03/01/糟糕-玩cypress上瘾了/">
 
 
 
 
 
-  <title>归档 | BinZhiZhu's Blog</title>
+  <title>糟糕 玩cypress上瘾了 | BinZhiZhu's Blog</title>
   
 
 
@@ -192,7 +193,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -327,72 +328,235 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 17 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/03/01/糟糕-玩cypress上瘾了/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/14/高仿快递智能识别地址功能/" itemprop="url">
-              
-                <span itemprop="name">高仿快递智能识别地址功能</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">糟糕 玩cypress上瘾了</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-14T17:54:56+08:00" content="2018-12-14">
-          12-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T13:17:26+08:00">
+                2019-03-01
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/01/糟糕-玩cypress上瘾了/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/01/糟糕-玩cypress上瘾了/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/01/糟糕-玩cypress上瘾了/" class="leancloud_visitors" data-flag-title="糟糕 玩cypress上瘾了">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  428
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h3 id="玩-e2e-cypress-上瘾了，你们前端项目一般如何测试？"><a href="#玩-e2e-cypress-上瘾了，你们前端项目一般如何测试？" class="headerlink" title="玩 e2e cypress 上瘾了，你们前端项目一般如何测试？"></a>玩 e2e cypress 上瘾了，你们前端项目一般如何测试？</h3><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>换了 Mac pro 不知不觉更喜欢深夜敲代码了，真的香！！！不知不觉已经快凌晨 4 点了，我带着困意还是打算发个帖子和大家共享一下我这几天琢磨的一些事情。本人其实是后端，但由于公司的发展与需求，开始着手维护前端项目，也一直在看 react （大佬可以带带我嘻）为了确保业务 flow 能够 stabling，最近公司前端项目在测试环节上选用了 e2e 的 cypress，琢磨了一阵子，体验还是很好的，开箱即用。</p>
+<h3 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h3><ul>
+<li><p>开箱即用</p>
+</li>
+<li><p>官方 doc 很多，利于开发与维护</p>
+</li>
+<li><p>gui 界面（ env：google 浏览器），可边测边调整</p>
+</li>
+<li><p>自定义 commands</p>
+</li>
+<li><p>自定义 fixture，可 mock 数据</p>
+</li>
+<li><p>支持 ci 运行测试，可上传到 bashBoard</p>
+</li>
+<li><p>关注测试覆盖率（ Chrome 的 coverage ）</p>
+</li>
+<li><p>截图功能，用例失败的场景节点会被截图保存，利于复现</p>
+</li>
+<li><p>录屏功能，每个测试用例都会记录下来（ MP4 ）</p>
+</li>
+<li><p>等等。。。  </p>
+</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>饿了么首页为例：验证搜索一个商品，断言如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">it(&apos;输入搜索词，结果正确展示&apos;, () =&gt; &#123;</span><br><span class="line">  cy.visit(&apos;https://h5.ele.me/&apos;)</span><br><span class="line">  // 点击跳转搜索页面</span><br><span class="line">  cy.get(&apos;.search&apos;).click()</span><br><span class="line"></span><br><span class="line">  cy.wait(200)</span><br><span class="line">  cy.get(&apos;input&apos;).type(&apos;麻辣烫&apos;)</span><br><span class="line"></span><br><span class="line">  cy.get(&apos;button&apos;).click()</span><br><span class="line"></span><br><span class="line">  // 目标页面地址包含 search 点击列表第一项</span><br><span class="line">  cy.wait(500)</span><br><span class="line">  cy.url().should(&apos;include&apos;, &apos;search&apos;)</span><br><span class="line">  cy.get(&apos;.shop&apos;).first().click()</span><br><span class="line"></span><br><span class="line">  // 跳转至商家详情页，找到购物车元素</span><br><span class="line">  cy.wait(500)</span><br><span class="line">  cy.get(&apos;.cartview&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>[原文链接]  <a href="https://zhuanlan.zhihu.com/p/32666685" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32666685</a></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/29/2018年度总结/" rel="next" title="2018年度总结">
+                <i class="fa fa-chevron-left"></i> 2018年度总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -400,6 +564,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -420,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -518,6 +698,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#玩-e2e-cypress-上瘾了，你们前端项目一般如何测试？"><span class="nav-number">1.</span> <span class="nav-text">玩 e2e cypress 上瘾了，你们前端项目一般如何测试？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体验"><span class="nav-number">2.</span> <span class="nav-text">体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -709,6 +905,10 @@ setInterval("createtime()",250);
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1205,6 +1405,23 @@ setInterval("createtime()",250);
 
   
   
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 15038,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
 
   
 
