@@ -105,7 +105,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -118,18 +118,17 @@
 
 
 
-<meta name="description" content="##初探Hexo Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="BEM命名约定 使用 BEM 命名规范，理论上讲，每行 css 代码都只有一个选择器。 BEM代表 “块（block）,元素（element）,修饰符（modifier）”,我们常用这三个实体开发组件。 在选择器中，由以下三种符号来表示扩展的关系： 12345-   中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。__  双下划线：双下划线用来连接块和块的子元素_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="尝试使用Hexo+Github搭建个人博客">
-<meta property="og:url" content="http://binzhizhu.github.io/2018/11/14/尝试使用Hexo-Github搭建个人博客/index.html">
+<meta property="og:title" content="CSS BEM 书写规范">
+<meta property="og:url" content="http://binzhizhu.github.io/2019/04/20/CSS-BEM-书写规范/index.html">
 <meta property="og:site_name" content="BinZhiZhu&#39;s Blog">
-<meta property="og:description" content="##初探Hexo Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的">
+<meta property="og:description" content="BEM命名约定 使用 BEM 命名规范，理论上讲，每行 css 代码都只有一个选择器。 BEM代表 “块（block）,元素（element）,修饰符（modifier）”,我们常用这三个实体开发组件。 在选择器中，由以下三种符号来表示扩展的关系： 12345-   中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。__  双下划线：双下划线用来连接块和块的子元素_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-15T13:15:47.857Z">
+<meta property="og:updated_time" content="2019-04-20T14:09:15.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="尝试使用Hexo+Github搭建个人博客">
-<meta name="twitter:description" content="##初探Hexo Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的">
+<meta name="twitter:title" content="CSS BEM 书写规范">
+<meta name="twitter:description" content="BEM命名约定 使用 BEM 命名规范，理论上讲，每行 css 代码都只有一个选择器。 BEM代表 “块（block）,元素（element）,修饰符（modifier）”,我们常用这三个实体开发组件。 在选择器中，由以下三种符号来表示扩展的关系： 12345-   中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。__  双下划线：双下划线用来连接块和块的子元素_">
 
 
 
@@ -159,13 +158,13 @@
 
 
 
-  <link rel="canonical" href="http://binzhizhu.github.io/2018/11/14/尝试使用Hexo-Github搭建个人博客/">
+  <link rel="canonical" href="http://binzhizhu.github.io/2019/04/20/CSS-BEM-书写规范/">
 
 
 
 
 
-  <title>尝试使用Hexo+Github搭建个人博客 | BinZhiZhu's Blog</title>
+  <title>CSS BEM 书写规范 | BinZhiZhu's Blog</title>
   
 
 
@@ -343,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2018/11/14/尝试使用Hexo-Github搭建个人博客/">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/04/20/CSS-BEM-书写规范/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BinZhi Zhu">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">尝试使用Hexo+Github搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">CSS BEM 书写规范</h1>
         
 
         <div class="post-meta">
@@ -372,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-14T00:14:26+08:00">
-                2018-11-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T22:07:48+08:00">
+                2019-04-20
               </time>
             
 
@@ -383,28 +382,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -413,8 +390,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/14/尝试使用Hexo-Github搭建个人博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/14/尝试使用Hexo-Github搭建个人博客/" itemprop="commentCount"></span>
+                <a href="/2019/04/20/CSS-BEM-书写规范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/CSS-BEM-书写规范/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +399,7 @@
 
           
           
-             <span id="/2018/11/14/尝试使用Hexo-Github搭建个人博客/" class="leancloud_visitors" data-flag-title="尝试使用Hexo+Github搭建个人博客">
+             <span id="/2019/04/20/CSS-BEM-书写规范/" class="leancloud_visitors" data-flag-title="CSS BEM 书写规范">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -452,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  258
+                  1.2k
                 </span>
               
 
@@ -468,7 +445,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -489,12 +466,75 @@
       
 
       
-        <p>##初探Hexo</p>
-<p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。这里我们选用的是GitHub，你没看错，全球最大的同性恋交友网站（逃……）。<br>Hexo同时也是GitHub上的开源项目，参见：hexojs/hexo 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。这里，默认各位猿/媛儿都知道GitHub就不再赘述。<br><a id="more"></a></p>
-<p>##搭建步骤</p>
-<p>1.获得个人网站域名<br>2.GitHub创建个人仓库<br>3.安装Git<br>4.安装Node.js<br>5.安装Hexo<br>6.推送网站<br>7.绑定域名<br>8.更换主题<br>9.初识MarkDown语法<br>10.发布文章<br>11.寻找图床<br>12.个性化设置</p>
-<p>##关于博主</p>
-<p>本人博客地址：<a href="https://binzhizhu.github.io">https://binzhizhu.github.io</a><br>交流：<a href="mailto:binzhizhu@gmail.com" target="_blank" rel="noopener">binzhizhu@gmail.com</a><br>网站：<a href="http://www.binzhizhu.top" target="_blank" rel="noopener">www.binzhizhu.top</a></p>
+        <h2 id="BEM命名约定"><a href="#BEM命名约定" class="headerlink" title="BEM命名约定"></a>BEM命名约定</h2><hr>
+<p>使用 <a href="http://bem.info/" target="_blank" rel="noopener">BEM</a> 命名规范，理论上讲，每行 <code>css</code> 代码都只有一个选择器。</p>
+<p>BEM代表 <strong>“块（block）,元素（element）,修饰符（modifier）”</strong>,我们常用这三个实体开发组件。</p>
+<p>在选择器中，由以下三种符号来表示扩展的关系：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-   中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。</span><br><span class="line">__  双下划线：双下划线用来连接块和块的子元素</span><br><span class="line">_   单下划线：单下划线用来描述一个块或者块的子元素的一种状态</span><br><span class="line"></span><br><span class="line">type-block__element_modifier</span><br></pre></td></tr></table></figure>
+<h3 id="块（block）"><a href="#块（block）" class="headerlink" title="块（block）"></a>块（block）</h3><p>一个块是设计或布局的一部分，它有具体且唯一地意义 ，要么是语义上的要么是视觉上的。</p>
+<p>在大多数情况下，任何独立的页面元素（或复杂或简单）都可以被视作一个块。它的HTML容器会有一个唯一的CSS类名，也就是这个块的名字。</p>
+<p>针对块的CSS类名会加一些前缀（ <code>ui-</code>），这些前缀在CSS中有类似 <a href="https://github.com/Tencent/tmt-workflow/wiki/%E2%92%9B-%5B%E8%A7%84%E8%8C%83%5D--CSS-BEM-%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83" target="_blank" rel="noopener">命名空间</a> 的作用。</p>
+<p>一个块的正式（实际上是半正式的）定义有下面三个基本原则：</p>
+<ol>
+<li>CSS中只能使用类名（不能是ID）。</li>
+<li>每一个块名应该有一个命名空间（前缀）</li>
+<li>每一条CSS规则必须属于一个块。</li>
+</ol>
+<p>例如：一个自定义列表 <code>.list</code> 是一个块，通常自定义列表是算在 <code>mod</code> 类别的，在这种情况下，一个 <code>list</code> 列表的block写法应该为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.list</span><br></pre></td></tr></table></figure>
+<h3 id="元素（element）"><a href="#元素（element）" class="headerlink" title="元素（element）"></a>元素（element）</h3><p>块中的子元素是块的子元素，并且子元素的子元素在 <code>bem</code> 里也被认为是块的直接子元素。<strong>一个块中元素的类名必须用父级块的名称作为前缀。</strong></p>
+<p>如上面的例子，<code>li.item</code> 是列表的一个子元素，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.list&#123;&#125;</span><br><span class="line">.list .item&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.list&#123;&#125;</span><br><span class="line">.list__item&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修饰符（modifier）"><a href="#修饰符（modifier）" class="headerlink" title="修饰符（modifier）"></a>修饰符（modifier）</h3><p>一个“修饰符”可以理解为一个块的特定状态，标识着它持有一个特定的属性。</p>
+<p>用一个例子来解释最好不过了。一个表示按钮的块默认有三个大小：小，中，大。为了避免创建三个不同的块，最好是在块上加修饰符。这个修饰符应该有个名字（比如：<code>size</code> ）和值（ <code>small</code>，<code>normal</code> 或者 <code>big</code> ）。</p>
+<p>如上面的例子中，表示一个选中的列表，和一个激活的列表项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.list&#123;&#125;</span><br><span class="line">.list.select&#123;&#125;</span><br><span class="line">.list .item&#123;&#125;</span><br><span class="line">.list .item.active&#123;&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">.list&#123;&#125;</span><br><span class="line">.list_select&#123;&#125;</span><br><span class="line">.list__item&#123;&#125;</span><br><span class="line">.list__item_active&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="LESS-书写规范"><a href="#LESS-书写规范" class="headerlink" title="LESS 书写规范"></a>LESS 书写规范</h1><p>使用 <code>.less</code> 后缀的文件来存储变量、混合代码以及最终合并压缩。</p>
+<table>
+<thead>
+<tr>
+<th>子less</th>
+<th>注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lib-base.less</code></td>
+<td>预定义的变量，例如颜色、字号、字体</td>
+</tr>
+<tr>
+<td><code>lib-mixins.less</code></td>
+<td>用于混合的代码，例如渐变、半透明的混合</td>
+</tr>
+<tr>
+<td><code>lib-reset.less</code></td>
+<td>初始化</td>
+</tr>
+<tr>
+<td><code>lib-ui.less</code></td>
+<td>颗粒化ui功能</td>
+</tr>
+<tr>
+<td><code>xxx.less</code></td>
+<td>模块样式</td>
+</tr>
+</tbody>
+</table>
+<p><code>.less</code> 文件的引用顺序会对最终编译的样式的作用域和优先级产生影响，请尽量按照由底层到自定义的顺序来引用。</p>
+<h2 id="关于风格"><a href="#关于风格" class="headerlink" title="关于风格"></a>关于风格</h2><h2 id="书写原则"><a href="#书写原则" class="headerlink" title="书写原则"></a>书写原则</h2><h5 id="1-原则上不会出现2层以上选择器嵌套"><a href="#1-原则上不会出现2层以上选择器嵌套" class="headerlink" title="1. 原则上不会出现2层以上选择器嵌套"></a>1. 原则上不会出现<code>2层以上</code>选择器嵌套</h5><p>使用<code>BEM</code>原则，用命名来解耦，所有类名都为一层，增加效率和复用性</p>
+<h5 id="2-两层选择器嵌套出现在-mod-xxx-item-current子元素的情况，如下："><a href="#2-两层选择器嵌套出现在-mod-xxx-item-current子元素的情况，如下：" class="headerlink" title="2. 两层选择器嵌套出现在.mod-xxx__item_current子元素的情况，如下："></a>2. 两层选择器嵌套出现在<code>.mod-xxx__item_current</code>子元素的情况，如下：</h5><p>使用<strong>推荐</strong>的嵌套写法</p>
+<p><strong>常规写法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.xxx&#123;&#125;</span><br><span class="line">.xxx__item&#123;&#125;</span><br><span class="line">.xxx__item_current&#123;&#125;</span><br><span class="line">// 嵌套写法</span><br><span class="line">.xxx__item_current .mod-xxx__link&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>推荐：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.xxx&#123;&#125;</span><br><span class="line">.xxx__item&#123;&#125;</span><br><span class="line">.xxx__item_hightlight&#123;&#125;</span><br><span class="line">.xxx__product-name&#123;&#125;</span><br><span class="line">.xxx__link&#123;&#125;</span><br><span class="line">.xxx__ming-zi-ke-yi-hen-chang&#123;&#125;</span><br><span class="line"></span><br><span class="line">// 嵌套写法</span><br><span class="line">.xxx__item_current&#123;</span><br><span class="line">    .xxx__link&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的HTML结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;xxx&quot;&gt;</span><br><span class="line">    &lt;li class=&quot;xxx__item&quot;&gt;第一项</span><br><span class="line">        &lt;div class=&quot;xxx__product-name&quot;&gt;我是名称&lt;/div&gt;</span><br><span class="line">        &lt;span class=&quot;xxx__ming-zi-ke-yi-hen-chang&quot;&gt;看类名&lt;/span&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;xxx__link&quot;&gt;我是link&lt;/a&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;li class=&quot;xxx__item xxx__item_current&quot;&gt;第二项 且 当前选择项</span><br><span class="line">        &lt;div class=&quot;xxx__product-name&quot;&gt;我是名称&lt;/div&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;xxx__item-link&quot;&gt;我是link&lt;/a&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;li class=&quot;xxx__item xxx__item_hightlight&quot;&gt;第三项 且 特殊高亮</span><br><span class="line">         &lt;div class=&quot;xxx__product-name&quot;&gt;我是名称&lt;/div&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;xxx__item-link&quot;&gt;我是link&lt;/a&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="BEM-解决问题"><a href="#BEM-解决问题" class="headerlink" title="BEM 解决问题"></a>BEM 解决问题</h2><p>组件之间的完全解耦，不会造成命名空间的污染，如：<code>.mod-xxx ul li</code> 的写法带来的潜在的嵌套风险。</p>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>BEM 命名会使得 Class 类名变长，但经过 gzip 压缩后这个带宽开销可以忽略不计</p>
+<p>xxx__item_hightlight</p>
+<h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><ul>
+<li>更新文档只是有利于提高自己开发效率 有版权问题 请联系本人修正。</li>
+</ul>
 
       
     </div>
@@ -509,12 +549,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          
-        </div>
       
 
       
@@ -537,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/14/北岛-《回答》/" rel="next" title="北岛-《回答》">
-                <i class="fa fa-chevron-left"></i> 北岛-《回答》
+              <a href="/2019/04/20/MacOS-PhpStorm-快捷键/" rel="next" title="MacOS PhpStorm 快捷键">
+                <i class="fa fa-chevron-left"></i> MacOS PhpStorm 快捷键
               </a>
             
           </div>
@@ -546,10 +580,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/15/为NexT主题添加文章阅读量统计功能/" rel="prev" title="为NexT主题添加文章阅读量统计功能">
-                为NexT主题添加文章阅读量统计功能 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -702,6 +741,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BEM命名约定"><span class="nav-number">1.</span> <span class="nav-text">BEM命名约定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#块（block）"><span class="nav-number">1.1.</span> <span class="nav-text">块（block）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素（element）"><span class="nav-number">1.2.</span> <span class="nav-text">元素（element）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符（modifier）"><span class="nav-number">1.3.</span> <span class="nav-text">修饰符（modifier）</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#LESS-书写规范"><span class="nav-number"></span> <span class="nav-text">LESS 书写规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于风格"><span class="nav-number">1.</span> <span class="nav-text">关于风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书写原则"><span class="nav-number">2.</span> <span class="nav-text">书写原则</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-原则上不会出现2层以上选择器嵌套"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1. 原则上不会出现2层以上选择器嵌套</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-两层选择器嵌套出现在-mod-xxx-item-current子元素的情况，如下："><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2. 两层选择器嵌套出现在.mod-xxx__item_current子元素的情况，如下：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BEM-解决问题"><span class="nav-number">3.</span> <span class="nav-text">BEM 解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能"><span class="nav-number">4.</span> <span class="nav-text">性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QA"><span class="nav-number">5.</span> <span class="nav-text">QA</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
