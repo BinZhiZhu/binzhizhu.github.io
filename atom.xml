@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://binzhizhu.github.io/"/>
-  <updated>2019-04-20T14:09:15.933Z</updated>
+  <updated>2019-05-02T03:59:37.870Z</updated>
   <id>http://binzhizhu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>熬夜在VPS简单搭了个frp内网穿透web服务</title>
+    <link href="http://binzhizhu.github.io/2019/05/02/%E7%86%AC%E5%A4%9C%E5%9C%A8VPS%E7%AE%80%E5%8D%95%E6%90%AD%E4%BA%86%E4%B8%AAfrp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fweb%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://binzhizhu.github.io/2019/05/02/熬夜在VPS简单搭了个frp内网穿透web服务/</id>
+    <published>2019-05-02T03:56:22.000Z</published>
+    <updated>2019-05-02T03:59:37.870Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="搭建成功"><a href="#搭建成功" class="headerlink" title="搭建成功 : )"></a>搭建成功 : )</h2><p><a href="http://ww1.sinaimg.cn/large/00655MmOgy1g2mbbs6c3nj31gc13qkjl.jpg" target="_blank" rel="noopener">http://ww1.sinaimg.cn/large/00655MmOgy1g2mbbs6c3nj31gc13qkjl.jpg</a></p><h2 id="回顾一下"><a href="#回顾一下" class="headerlink" title="回顾一下"></a>回顾一下</h2><p>小白前几天发了一个帖子，简单调研了一下大佬们平时用服务器来干啥，大多数的答案基本如下：<br>1.闲置、吃灰<br>2.搭梯子、frp 内网穿透<br>3.测试服务器<br>4.API 调用<br>5.等等更加高级的玩法<br>这里贴一下之前的帖子 <a href="https://www.v2ex.com/t/559909#reply93" target="_blank" rel="noopener">https://www.v2ex.com/t/559909#reply93</a></p><h2 id="为什么瞎几把搞"><a href="#为什么瞎几把搞" class="headerlink" title="为什么瞎几把搞"></a>为什么瞎几把搞</h2><p>然后我琢磨了一下，觉得吃灰的话还不如自己搭一个内网穿透，也就是大家口中说的 frp 咯。<br>之前我毕业前实习的时候做开发是用花钱去买市场上的一些内网穿透的产品，之前用的是 natapp，开始用免费的。<br>结果可想而知，那速度慢的一批。于是买了个 10 元 /月的套餐，流量勉强还能接受吧，基本用于微信开发，大家知道的啦，sbox 沙盒那边配置一下开发起来以及测试比较方便，免得每次都得更新到线上才可以测试，或者说更新到测试服务器，这样开销有点大，所以那会就这样搞。后来业务逐渐少了，自己也买了个阿里云的小学机，虽然尿管，但是自己搭搭博客还是🆗的。这里就不扯淡了，有点丢人，这里高手如云，大家给个面子。  </p><h2 id="瞎几把搞"><a href="#瞎几把搞" class="headerlink" title="瞎几把搞"></a>瞎几把搞</h2><p>搭建这个 frp 的公网服务器我是选择了我闲置吃灰的 VPS,搬瓦工买的，$19.99/year。现在估计玩蛇了，上次看了一下，有点贵了，我有点怕不能续费。那么平时只是翻墙，所以打算就拿它开刀呗。</p><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ul><li>公网服务器安装最新版本的 release，根据 arch。  </li><li>配置 frps.ini</li><li>测试连接</li><li>内网同样安装相同版本的 frp</li><li>配置 frpc.ini （注意端口统一的问题）</li><li>阿里云添加一个新的域名</li><li>域名解析到自己的公网 ip</li><li>由于要让外网访问到内网，所以在服务器增加一个虚拟域名。（ root 填自己内网的项目地址即可）</li><li>内网测试连接</li><li>收工</li></ul><p>其实过程中遇到一些小问题，官方 issue 也很多人提到过，类似于：<br><code>[W] [service.go:82] login to server failed: dial tcp xxx.xxx.xxx.xxx:7000: connect: connection timed out</code></p><p>交流贴，纯粹跟大家分享一下，并不是炫技哈~~</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;搭建成功&quot;&gt;&lt;a href=&quot;#搭建成功&quot; class=&quot;headerlink&quot; title=&quot;搭建成功 : )&quot;&gt;&lt;/a&gt;搭建成功 : )&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://ww1.sinaimg.cn/large/00655MmOgy1g2mbbs
+      
+    
+    </summary>
+    
+    
+      <category term="frp" scheme="http://binzhizhu.github.io/tags/frp/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS BEM 书写规范</title>
@@ -569,30 +592,6 @@
     
     
       <category term="Hexo" scheme="http://binzhizhu.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>北岛-《回答》</title>
-    <link href="http://binzhizhu.github.io/2018/11/14/%E5%8C%97%E5%B2%9B-%E3%80%8A%E5%9B%9E%E7%AD%94%E3%80%8B/"/>
-    <id>http://binzhizhu.github.io/2018/11/14/北岛-《回答》/</id>
-    <published>2018-11-13T16:05:05.000Z</published>
-    <updated>2018-12-15T13:15:47.882Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center">回答</blockquote><blockquote class="blockquote-center"><br>卑鄙是卑鄙者的通行证，<br>高尚是高尚者的墓志铭，<br>看吧，在那镀金的天空中，<br>飘满了死者弯曲的倒影。<br><br>冰川纪过去了，<br>为什么到处都是冰凌？<br>好望角发现了，<br>为什么死海里千帆相竞？<br></blockquote><br><a id="more"></a><br><br><blockquote class="blockquote-center"><br>我来到这个世界上，<br>只带着纸、绳索和身影，<br>为了在审判之前，<br>宣读那些被判决的声音。<br><br>告诉你吧，世界<br>我–不–相–信！<br>纵使你脚下有一千名挑战者，<br>那就把我算作第一千零一名。<br><br><br>我不相信天是蓝的，<br>我不相信雷的回声，<br>我不相信梦是假的，<br>我不相信死无报应。<br><br>如果海洋注定要决堤，<br>就让所有的苦水都注入我心中，<br>如果陆地注定要上升，<br>就让人类重新选择生存的峰顶。<br><br>新的转机和闪闪星斗，<br>正在缀满没有遮拦的天空。<br>那是五千年的象形文字，<br>那是未来人们凝视的眼睛。<br></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote class=&quot;blockquote-center&quot;&gt;回答&lt;/blockquote&gt;
-
-&lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;br&gt;卑鄙是卑鄙者的通行证，&lt;br&gt;高尚是高尚者的墓志铭，&lt;br&gt;看吧，在那镀金的天空中，&lt;br&gt;飘满了死者弯曲的倒影。&lt;br&gt;&lt;br&gt;冰川纪过去了，&lt;br&gt;为什么到处都是冰凌？&lt;br&gt;好望角发现了，&lt;br&gt;为什么死海里千帆相竞？&lt;br&gt;&lt;/blockquote&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="精神食物" scheme="http://binzhizhu.github.io/categories/%E7%B2%BE%E7%A5%9E%E9%A3%9F%E7%89%A9/"/>
-    
-    
-      <category term="感悟" scheme="http://binzhizhu.github.io/tags/%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   
