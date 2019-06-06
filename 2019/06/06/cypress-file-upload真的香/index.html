@@ -105,7 +105,7 @@
 
 
 
-  <meta name="keywords" content="mysql,">
+  <meta name="keywords" content="cypress，测试,">
 
 
 
@@ -118,18 +118,18 @@
 
 
 
-<meta name="description" content="##前言  最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为：  1Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &amp;apos;support_desk.mod_users_groups.group_id&amp;apos; which is not func">
-<meta name="keywords" content="mysql">
+<meta name="description" content="cypress-file-upload 是什么之前有写过一遍博客大致介绍了cypress是什么：前端e2e测试框架(歪果仁开发)。   最近因为有个项目因为改版的原因，差不多到上线的节点了，所以还是希望把测试维护起来。e2e实际上就是end to end 嘛，你如果直接理解为验收测试也不为过。众所周知咯，维护前端测试实际上是一件很麻烦的事情，因为有复杂的业务、复杂的UI交互，人工测试实在是太耗时费">
+<meta name="keywords" content="cypress，测试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案">
-<meta property="og:url" content="http://binzhizhu.github.io/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/index.html">
+<meta property="og:title" content="cypress-file-upload真的香">
+<meta property="og:url" content="http://binzhizhu.github.io/2019/06/06/cypress-file-upload真的香/index.html">
 <meta property="og:site_name" content="BinZhiZhu&#39;s Blog">
-<meta property="og:description" content="##前言  最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为：  1Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &amp;apos;support_desk.mod_users_groups.group_id&amp;apos; which is not func">
+<meta property="og:description" content="cypress-file-upload 是什么之前有写过一遍博客大致介绍了cypress是什么：前端e2e测试框架(歪果仁开发)。   最近因为有个项目因为改版的原因，差不多到上线的节点了，所以还是希望把测试维护起来。e2e实际上就是end to end 嘛，你如果直接理解为验收测试也不为过。众所周知咯，维护前端测试实际上是一件很麻烦的事情，因为有复杂的业务、复杂的UI交互，人工测试实在是太耗时费">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-29T16:58:24.307Z">
+<meta property="og:updated_time" content="2019-06-06T13:37:52.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案">
-<meta name="twitter:description" content="##前言  最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为：  1Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &amp;apos;support_desk.mod_users_groups.group_id&amp;apos; which is not func">
+<meta name="twitter:title" content="cypress-file-upload真的香">
+<meta name="twitter:description" content="cypress-file-upload 是什么之前有写过一遍博客大致介绍了cypress是什么：前端e2e测试框架(歪果仁开发)。   最近因为有个项目因为改版的原因，差不多到上线的节点了，所以还是希望把测试维护起来。e2e实际上就是end to end 嘛，你如果直接理解为验收测试也不为过。众所周知咯，维护前端测试实际上是一件很麻烦的事情，因为有复杂的业务、复杂的UI交互，人工测试实在是太耗时费">
 
 
 
@@ -159,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://binzhizhu.github.io/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/">
+  <link rel="canonical" href="http://binzhizhu.github.io/2019/06/06/cypress-file-upload真的香/">
 
 
 
 
 
-  <title>mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案 | BinZhiZhu's Blog</title>
+  <title>cypress-file-upload真的香 | BinZhiZhu's Blog</title>
   
 
 
@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/06/cypress-file-upload真的香/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BinZhi Zhu">
@@ -360,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案</h1>
+          <h1 class="post-title" itemprop="name headline">cypress-file-upload真的香</h1>
         
 
         <div class="post-meta">
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-30T00:45:20+08:00">
-                2018-11-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T21:14:30+08:00">
+                2019-06-06
               </time>
             
 
@@ -383,28 +383,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -413,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/" itemprop="commentCount"></span>
+                <a href="/2019/06/06/cypress-file-upload真的香/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/06/cypress-file-upload真的香/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +400,7 @@
 
           
           
-             <span id="/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/" class="leancloud_visitors" data-flag-title="mysql-Expression #1 of SELECT list is not in GROUP BY clause解决方案">
+             <span id="/2019/06/06/cypress-file-upload真的香/" class="leancloud_visitors" data-flag-title="cypress-file-upload真的香">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -452,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  294
+                  809
                 </span>
               
 
@@ -468,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -489,25 +467,20 @@
       
 
       
-        <p>##前言<br>  最近部署自己项目到服务器后，运行时mysql报错，抛出异常的代码为：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column &apos;support_desk.mod_users_groups.group_id&apos; which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by</span><br></pre></td></tr></table></figure></p>
-<p>  谷歌翻译一下大概意思：</p>
-<p>  <strong>SELECT列表的表达式＃1不在GROUP BY子句中，并且包含非聚合列’support_desk.mod_users_groups.group_id’，它在功能上不依赖于GROUP BY子句中的列; 这与sql_mode = only_full_group_by不兼容</strong></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>  实锤是因为MySQL版本的原因，我去StackOverflow查了相关的解决方案，最终还是解决了这个问题。</p>
-<ul>
-<li>cd /etc/my.cnf 或者etc/mysql/my.cnf 不清楚路径可以 whereis my.cnf 打印pwd路径</li>
-<li>vim my.cnf</li>
-<li><p>添加sql_mode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">    sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>esc :wq 报错退出</p>
-</li>
-<li><p>重启一下mysql服务 sudo service mysql restart / 或者/etc/init.d/mysql restart等等都可以</p>
-</li>
-<li><p>除了上面这种方法也可以直接连接mysql 通过mysql-&gt;set …[sql_mode] 类似</p>
-<p>这样问题就解决了，最后贴一下解决方案的地址</p>
-<p>[stackoverflow]：<a href="https://stackoverflow.com/questions/34115174/error-related-to-only-full-group-by-when-executing-a-query-in-mysql" target="_blank" rel="noopener">https://stackoverflow.com/questions/34115174/error-related-to-only-full-group-by-when-executing-a-query-in-mysql</a></p>
-</li>
-</ul>
+        <h2 id="cypress-file-upload-是什么"><a href="#cypress-file-upload-是什么" class="headerlink" title="cypress-file-upload 是什么"></a>cypress-file-upload 是什么</h2><p>之前有写过一遍博客大致介绍了cypress是什么：前端e2e测试框架(歪果仁开发)。  </p>
+<p>最近因为有个项目因为改版的原因，差不多到上线的节点了，所以还是希望把测试维护起来。e2e实际上就是end to end 嘛，你如果直接理解为验收测试也不为过。众所周知咯，维护前端测试实际上是一件很麻烦的事情，因为有复杂的业务、复杂的UI交互，人工测试实在是太耗时费力(成本)，另外前端项目是比较不那么stable 的。因为前端样式是可能时常变化的，今天断言的这个按钮是红色、明天可能是白色了。所以对于小型公司来说的话，建议是在一个stable 的阶段去维护比较有收益，最近的项目改版就是一个有力的例子。V1版本维护了一套stable的测试用例，突然说需要改版，基本是换肤，对于UI来说基本是不一致的了，这导致之前维护的版本的测试基本是需要重新维护的了。</p>
+<h2 id="为什么要使用cypress-file-upload"><a href="#为什么要使用cypress-file-upload" class="headerlink" title="为什么要使用cypress-file-upload"></a>为什么要使用cypress-file-upload</h2><p>前端很多场景是需要上传文件的，最通常的就是上传图片。也就是说我们写测试的过程中，例如填写一个表单，需要上传图片，然后才能提交到后台。所以我们是需要模拟上传图片的，简单来说就是把这个事情自动化，本来我们就是自动化测试嘛。之前也写过一些cypress简单的用例，但是上传图片之前没去琢磨过，于是我就去gayhub疯狂的search issues ，大致关键词就是：”cypress how to upload file”。果不其然，还是挺多歪果仁提过这个issue的，所以我就大致认真的看了一下，因为都是英文，所以还是得认真的去消化 ：）。我发现了一个关键的issue：<a href="https://github.com/cypress-io/cypress/issues/170" target="_blank" rel="noopener">https://github.com/cypress-io/cypress/issues/170</a>  然后摸石头过河，发现有些朋友贴出的好的idea ：cypress-file-upload , 直接npm install - -save -dev cypress-file-upload 就可以，具体可以直接Google咯。</p>
+<p>首先先 npm 安装 cypress-file-upload 哦</p>
+<p>大致的用法是，这里贴一下代码块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  上传图片 【自己封了一层】</span><br><span class="line"> *</span><br><span class="line"> *  参考  https://github.com/cypress-io/cypress/issues/170</span><br><span class="line"> */</span><br><span class="line">Cypress.Commands.add(&apos;uploadFile&apos;, (fileName, fileType, selector,subjectType) =&gt; &#123;</span><br><span class="line">  cy.fixture(fileName).then(fileContent =&gt; &#123;</span><br><span class="line">    // console.log(&apos;fileContent&apos;,fileContent)</span><br><span class="line">    cy.get(selector).upload(</span><br><span class="line">      &#123; fileContent, fileName, mimeType: fileType &#125;,</span><br><span class="line">      &#123; subjectType: subjectType &#125;,</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   //模拟图片上传</span><br><span class="line">    const fileName = &apos;images/logo.png&apos;;</span><br><span class="line">    const fileType = &apos;image/png&apos;;</span><br><span class="line">    const subjectType = &apos;input&apos;;</span><br><span class="line">    const selector = &apos;input[type=&quot;file&quot;]&apos;</span><br><span class="line"></span><br><span class="line">    cy.uploadFile(fileName,fileType,selector,subjectType)</span><br></pre></td></tr></table></figure>
+<p>有几点注意的：</p>
+<ol>
+<li>uploadFile是自己封装的func，需要统一放在commands.js [官方提供的diy func]</li>
+<li>此时直接使用cy.get(…).upload(‘’) 是会报错的 找不到upload 方法，我们需要在commands.js 引入 import ‘cypress-file-upload’ ，之前我也以为npm 安装了即可，但是后来去gayhub 发现需要在commands import一次</li>
+</ol>
+<p>最后大功告成咯 ： ）  ci 上跑了一波 没啥问题 大功告成 cypress真的香哦 </p>
+<video src="/Users/apple/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/2ae4ac7ee7b52045568b2f00f252714c/Message/MessageTemp/f86605ec697634cf912542f2dc13a2a1/Video/master_certify_center.js_1559822306858595.mp4"></video>
+
 
       
     </div>
@@ -525,7 +498,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/cypress，测试/" rel="tag"># cypress，测试</a>
           
         </div>
       
@@ -550,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/30/探讨Tencent-weui-js之picker组件库/" rel="next" title="探讨Tencent/weui.js之picker组件库">
-                <i class="fa fa-chevron-left"></i> 探讨Tencent/weui.js之picker组件库
+              <a href="/2019/05/02/熬夜在VPS简单搭了个frp内网穿透web服务/" rel="next" title="熬夜在VPS简单搭了个frp内网穿透web服务">
+                <i class="fa fa-chevron-left"></i> 熬夜在VPS简单搭了个frp内网穿透web服务
               </a>
             
           </div>
@@ -559,10 +532,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/14/高仿快递智能识别地址功能/" rel="prev" title="高仿快递智能识别地址功能">
-                高仿快递智能识别地址功能 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -734,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cypress-file-upload-是什么"><span class="nav-number">1.</span> <span class="nav-text">cypress-file-upload 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用cypress-file-upload"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用cypress-file-upload</span></a></li></ol></div>
             
 
           </div>
