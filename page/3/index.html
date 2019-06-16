@@ -342,6 +342,371 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/01/08/msyql多表查询sum-重复累加问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/08/msyql多表查询sum-重复累加问题/" itemprop="url">msyql多表查询sum()重复累加问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T18:22:17+08:00">
+                2019-01-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/08/msyql多表查询sum-重复累加问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/08/msyql多表查询sum-重复累加问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/08/msyql多表查询sum-重复累加问题/" class="leancloud_visitors" data-flag-title="msyql多表查询sum()重复累加问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  655
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  今天产品那边反馈了一个bug：部分订单金额（筛选场景）统计的订单总额不对。我就觉得好奇了，咋会部分就不对呢？然后我就开始场景复现了，果真复现了，我们一起来看下这个问题。</p>
+<h3 id="场景复现"><a href="#场景复现" class="headerlink" title="场景复现"></a>场景复现</h3><p>1.搜索订单（一个订单多个商品），这样容易复现，订单号：SH20190107120514818483。<br>2.该订单购买了两个商品，A商品100元，B商品0元，合计是100元。<br>3.此时订单数：1 ;订单金额：200</p>
+<p><img src="/blogimages/2018-1-8-2.png" alt="1"></p>
+<p><img src="/blogimages/2018-1-8-1.png" alt="2"></p>
+<h3 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h3><p>表：订单表（A）：shop_order 订单商品表（B）：shop_order_goods </p>
+<p>mysql 代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT(o.id)) as count, ifnull(sum(o.price),0) as sumprice  FROM ims_new_shop_order o  left join ims_new_shop_order_refund r on r.id =o.refundid  left join ims_new_shop_member m on m.openid=o.openid  and m.uniacid =  o.uniacid left join ims_new_shop_member_address a on o.addressid = a.id  left join ims_new_shop_saler s on s.openid = o.verifyopenid and s.uniacid=o.uniacid left join ims_new_shop_member sm on sm.openid = s.openid and sm.uniacid=s.uniacid left join ims_new_shop_order_goods sog on sog.uniacid = o.uniacid and sog.orderid = o.id  left join ims_new_shop_goods sg on sg.uniacid = o.uniacid and sg.id = sog.goodsid   WHERE  o.uniacid = 1 and o.deleted=0 and o.isparent=0 and o.istrade=0  AND locate(&apos;SH20190107120514818483&apos;,o.ordersn)&gt;0  AND o.create_from_wxapp = 0</span><br></pre></td></tr></table></figure></p>
+<p>问题：我们会发现A表左连接B表的时候是不排除一对多的，也就是A表一条订单对应B表多条记录，但实际上这个时候我们需要去sum的金额仅仅是A表的订单金额，关联B表有多少记录我们是不需要在乎的。这个时候相当于重复统计了A表的订单金额，其实是受到了B表的影响。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>  我们应该应该怎么处理：</p>
+<p>  实际上我们只需要在A表连接B表的时候，B表单独子查询处理，因为我们需要##去重B表的重复记录##，所有需要对B表group by进行分组，这样的话就不会出现sum累计的问题了。</p>
+<p> ##A left join (SELECT id,uniacid,orderid,goodsid FROM ims_new_shop_order_goods GROUP BY goodsid) ## AS sog on C##</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/08/msyql多表查询sum-重复累加问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2018/12/14/高仿快递智能识别地址功能/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/14/高仿快递智能识别地址功能/" itemprop="url">高仿快递智能识别地址功能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T17:54:56+08:00">
+                2018-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/14/高仿快递智能识别地址功能/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/14/高仿快递智能识别地址功能/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/14/高仿快递智能识别地址功能/" class="leancloud_visitors" data-flag-title="高仿快递智能识别地址功能">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  302
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  这周接到一个项目功能，大致就类似快递类寄件智能识别收货地址，只需要复制粘贴地址信息，点击完成就直接填写到了对应的地址信息的输入框。<br>  我简单的举个例子吧：<br>  <em>小埋13000000000广东省广州市天河区体育西路xxx号</em><br>  上面就会自动识别为：</p>
+<ul>
+<li>收货人：小埋</li>
+<li>电话：13000000000</li>
+<li>省市区：广东省 广州市 天河区</li>
+<li>地址：体育西路xxx号<br>这样就认为是智能识别了，不需要一个一个去手动填写，只需要复制粘贴物流地址信息即可。说是这样说，但实际上内心是一万只曹尼玛 ^ ^</li>
+</ul>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>  我开始是再Google搜索有没有相关的第三方SDK，一般都会这样去思考，只需要调第三方sdk接口即可，但是实际上会有一个问题：地址库！！！<br>  现公司内部使用的地址库是腾讯开发的Jquery Weui组件库中的cityPicker，也就是填写省市区的地址选择器，所以地址库不统一的话是一个硬伤。</p>
+<p>  gayHub 地址<br>  [smart-parse]: <a href="https://github.com/BinZhiZhu/smart-parse" target="_blank" rel="noopener">https://github.com/BinZhiZhu/smart-parse</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2018/11/30/mysql-Expression-1-of-SELECT-list-is-not-in-GROUP-BY-clause解决方案/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1021,418 +1386,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2018/11/29/fsockopen实现发起异步请求忽略返回值/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/29/fsockopen实现发起异步请求忽略返回值/" itemprop="url">fsockopen实现发起异步请求忽略返回值</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T21:58:29+08:00">
-                2018-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/29/fsockopen实现发起异步请求忽略返回值/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/29/fsockopen实现发起异步请求忽略返回值/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/11/29/fsockopen实现发起异步请求忽略返回值/" class="leancloud_visitors" data-flag-title="fsockopen实现发起异步请求忽略返回值">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  430
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##前言</p>
-<p>  前段时间有个需求，我大概描述一下：用户进入公众号或者小程序的所有操作类行为的日志需要后端上报到内部的客户雷达小程序，而且需要异步请求，不需要等待返回。<br>简单来说就是当用户进入小程序点击某件商品或者加入购物车、下单等等操作，上报到雷达小程序，商户会时序看到哪个用户进来我的商店买了哪件商品，浏览了哪些商品，下了多少单等等，都可以随时看到。<br>这个时候我们就可能要需要思考了，要如何做到发起异步请求并且忽略返回值，前端那边不需要等待后端的返回，我也查看过相关资料，最后参考了下面这种方法。</p>
-<h2 id="发起异步请求-忽略返回值（后端技术PHP）"><a href="#发起异步请求-忽略返回值（后端技术PHP）" class="headerlink" title="发起异步请求 忽略返回值（后端技术PHP）"></a>发起异步请求 忽略返回值（后端技术PHP）</h2><p>  自己封装一个方法吧 我直接上代码</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 发起异步请求，忽略返回值</span><br><span class="line"> * @param $url 上报地址 例如http://www.binzhizhu.top</span><br><span class="line"> * @param array $params 上报的参数</span><br><span class="line"> * @return bool</span><br><span class="line"> */</span><br><span class="line">public static function asyncPost($url, $params = [])</span><br><span class="line">&#123;</span><br><span class="line">    Yii::info(&quot;into asyncPost &quot;, __METHOD__);</span><br><span class="line">    </span><br><span class="line">    $args = parse_url($url); </span><br><span class="line">    $host = $args[&apos;host&apos;]; //域名</span><br><span class="line">    $path = $args[&apos;path&apos;] . &apos;?&apos; . http_build_query($params);//上报的参数</span><br><span class="line"></span><br><span class="line">    $fp = fsockopen($host, 80, $error_code, $error_msg, 1);//使用fsockopen方法发起异步请求</span><br><span class="line">    </span><br><span class="line">    if (!$fp) &#123;</span><br><span class="line">        Yii::error($error_code . &apos; _ &apos; . $error_msg, __METHOD__);</span><br><span class="line">        return false;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        stream_set_blocking($fp, true);//开启了手册上说的非阻塞模式</span><br><span class="line">        stream_set_timeout($fp, 1);//设置超时</span><br><span class="line">        $header = &quot;GET $path HTTP/1.1\r\n&quot;; // GET/POST请求 http1.1协议</span><br><span class="line">        $header .= &quot;Host: $host\r\n&quot;;</span><br><span class="line">        $header .= &quot;Connection: close\r\n\r\n&quot;;//长连接关闭</span><br><span class="line">        fwrite($fp, $header);</span><br><span class="line">        fclose($fp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2018/11/28/Axios-基于-promise-的-HTTP-库/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/28/Axios-基于-promise-的-HTTP-库/" itemprop="url">Axios--基于 promise 的 HTTP 库</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T23:46:05+08:00">
-                2018-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/28/Axios-基于-promise-的-HTTP-库/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/28/Axios-基于-promise-的-HTTP-库/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/11/28/Axios-基于-promise-的-HTTP-库/" class="leancloud_visitors" data-flag-title="Axios--基于 promise 的 HTTP 库">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  10
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##认识Axios<br>  Axios 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</p>
-<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
-<li>从浏览器中创建 XMLHttpRequests</li>
-<li>从 node.js 创建 http 请求</li>
-<li>支持 Promise API</li>
-<li>拦截请求和响应</li>
-<li>转换请求数据和响应数据</li>
-<li>取消请求</li>
-<li>自动转换 JSON 数据</li>
-<li><p>客户端支持防御 XSRF</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>使用 npm:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install axios</span><br></pre></td></tr></table></figure>
-<p>使用 bower:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bower install axios</span><br></pre></td></tr></table></figure>
-<p>使用cdn:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/28/Axios-基于-promise-的-HTTP-库/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1485,7 +1438,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1507,7 +1460,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
