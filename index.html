@@ -342,6 +342,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/30/优雅的提交你的Git-commit/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/30/优雅的提交你的Git-commit/" itemprop="url">优雅的提交你的Git-commit</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-30T11:55:39+08:00">
+                2019-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/30/优雅的提交你的Git-commit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/30/优雅的提交你的Git-commit/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/30/优雅的提交你的Git-commit/" class="leancloud_visitors" data-flag-title="优雅的提交你的Git-commit">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  329
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Commitizen-替代你的-git-commit"><a href="#Commitizen-替代你的-git-commit" class="headerlink" title="Commitizen: 替代你的 git commit"></a>Commitizen: 替代你的 git commit</h2><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://link.zhihu.com/?target=https%3A//github.com/commitizen/cz-cli" target="_blank" rel="noopener">commitizen/cz-cli</a>, 我们需要借助它提供的 git cz 命令替代我们的 git commit 命令, 帮助我们生成符合规范的 commit message.</p>
+<p>除此之外, 我们还需要为 commitizen 指定一个 Adapter 比如: <a href="https://link.zhihu.com/?target=https%3A//github.com/commitizen/cz-conventional-changelog" target="_blank" rel="noopener">cz-conventional-changelog</a> (一个符合 Angular团队规范的 preset). 使得 commitizen 按照我们指定的规范帮助我们生成 commit message.</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g commitizen cz-conventional-changelog</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'&#123; "path": "cz-conventional-changelog" &#125;'</span> &gt; ~/.czrc</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>通常我们提交代码是使用 git commit -m 的形式，现在直接使用git cz 即可替代。</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><ul>
+<li>type: commit 的类型</li>
+<li>feat: 新特性</li>
+<li>fix: 修改问题</li>
+<li>refactor: 代码重构</li>
+<li>docs: 文档修改</li>
+<li>style: 代码格式修改, 注意不是 css 修改</li>
+<li>test: 测试用例修改</li>
+<li>chore: 其他修改, 比如构建流程, 依赖管理.</li>
+<li>scope: commit 影响的范围, 比如: route, component, utils, build…</li>
+<li>subject: commit 的概述, 建议符合 <a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting" target="_blank" rel="noopener">50/72 formatting</a></li>
+<li>body: commit 具体修改内容, 可以分为多行, 建议符合 <a href="https://link.zhihu.com/?target=https%3A//stackoverflow.com/questions/2290016/git-commit-messages-50-72-formatting" target="_blank" rel="noopener">50/72 formatting</a></li>
+<li>footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.</li>
+</ul>
+<h3 id="standard-version-自动生成-CHANGELOG"><a href="#standard-version-自动生成-CHANGELOG" class="headerlink" title="standard-version: 自动生成 CHANGELOG"></a>standard-version: 自动生成 CHANGELOG</h3><h4 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S standard-version</span><br></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>package.json :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scirpt&quot;: &#123;</span><br><span class="line">    ...,</span><br><span class="line">    &quot;release&quot;: &quot;standard-version&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run release</span><br></pre></td></tr></table></figure>
+<p>你会发现你git cz 的提交会自动生成一个CHANGELOG.md</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/29/折腾了一天，撸了个v2ex小程序/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1120,193 +1314,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/16/毕业一年，回首大学时光/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/16/毕业一年，回首大学时光/" itemprop="url">毕业一年，回首大学时光</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-16T23:34:30+08:00">
-                2019-06-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/16/毕业一年，回首大学时光/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/16/毕业一年，回首大学时光/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/06/16/毕业一年，回首大学时光/" class="leancloud_visitors" data-flag-title="毕业一年，回首大学时光">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.5k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>距离毕业已经将一年，我其实并不是很擅长写回忆这一类的东西，但是在这个时间节点，以及此时此刻，内心驱使着我去回忆一些过往。  </p>
-<h2 id="大一，我过得很孤僻"><a href="#大一，我过得很孤僻" class="headerlink" title="大一，我过得很孤僻"></a>大一，我过得很孤僻</h2><h3 id="高考失利"><a href="#高考失利" class="headerlink" title="高考失利"></a>高考失利</h3><p>我是2014届的，当年高考成绩对我的打击很大，但是我又不能不去接受这个事实。  为什么要这么说？当你高考失利的时候，无非有两种选择：1.复读；2.接受。我是属于后者，因为复读对于我来说是一个很长很长的噩梦，我是一个很难控制自己的情绪的人，可能我此时此刻我很有自信的说：下次我一定会考得比之前好。但是复读是一场持久战，我会觉得很折磨，我的抗压能力很差，所以我选择了后者。当然前者讨论的仅仅是选择性的问题，而我选择了后者，所以我又不得不接受后者产生的一系列问题。不复读的话，意味着尽可能的选择一个相对较好的学校以及专业，很遗憾，好的东西总是与我擦肩而过。我是第三志愿被录取的，虽晚专业不是调剂，但是结果让我很不满意：广州郊区(山卡拉)的某所三本本科独立院校，其实就是烧钱拿个本科文凭，美名其曰”独立学院”。</p>
-<h3 id="开学前，遭遇了一场车祸"><a href="#开学前，遭遇了一场车祸" class="headerlink" title="开学前，遭遇了一场车祸"></a>开学前，遭遇了一场车祸</h3><p>那也是异常噩梦，跟朋友骑车去游泳的途中，拐弯的时候为了躲闪一辆大车，撞到了路旁的护栏，当时从车上摔下来与地面摩擦大概有2~3米的距离。幸运的是是自己摔倒，并没有与其他车辆发生撞击而摔倒，否则的话，后果不堪设想。  </p>
-<p>我记得当时爬起来的时候，大家都还有知觉。也不觉得身体有疼痛感，但是手、脚多处擦伤严重，慢慢的我的身体就开始疼痛起来，甚至几度趋于昏迷的状态，这也是因为流血导致的轻微昏迷的状态。我记得当时有那么一刻我的眼睛是看不到的，我当时以为我要瞎了，吓得我哭了起来。那会应该是差不多开学的时候，所以发生了这么一个事情，回到家里，受尽了长辈们的批评与责骂，不过这也是应该的，我也很后悔当时跟着去游泳。跟学校领导请了半个月的假期，当时其实身体并没有完全恢复，是我自己要求提去学校报到的，因为我想参与军训。我是一个很感性的人，认为如果念大学没有经历过军训的洗礼，我会觉得失去了大学的色彩。其实我刚去那会，学校已经军训一个星期左右了，我就是带着这样的一种身体与情绪去大学报到的，现在回想起来还挺特别的，但仔细想想其实是可悲的。</p>
-<h3 id="与班集体脱节"><a href="#与班集体脱节" class="headerlink" title="与班集体脱节"></a>与班集体脱节</h3><p>经历了那么多的事情，我回到了学校。因为是延迟报到，所以我被分到了一个混合宿舍，并不是跟自己班里的人住在一起。当时觉得对自己不公平，现在想起来：一切都是最好的安排。  </p>
-<p>报到那会是我爸还有他的一个朋友开着家里的农民车皮卡载我来学校的。宿舍是六人宿舍，就差我一人，后来知道4名是外国语英德双语专业的，还有一名是跟我同系不同专业的。因为我是后面来的，他们已经军训一个星期多了，所以队形队列都是已经拍好了的，哪个方队多少人等等，我还是被安排到了与其他班级一起军训。这就是我为什么说的与班集体脱节，因为宿舍是混合宿舍，军训也是跟其他班级人一起，我基本没什么机会与班级的人产生沟通与交流，那会觉得挺压抑的。毕竟那会是刚刚步入大学，青涩的脸庞，内敛的性格，加上被分配到这么一种环境，对我来说还是有点阻碍的。不过，好在我会自觉主动的去与人沟通，这一点我觉得我还是做得比较好的。军训跟其他班级的一起，慢慢的也会认识一些”战友”，逐渐的就融入了进去。对于班级来说，那会我们一早一晚是要上晚自习的，说起来也是挺尴尬的，挺孤僻的。因为我是混合宿舍，宿舍楼都不是跟同系的人在一个地方，所以我上课都是一个人去的，别人都是一个一个宿舍去上晚自习，而我刚开始都是自己一个人去的，不过还好我还有一个同系的舍友，后来就偶尔会一起去，刚好也有个伴。</p>
-<h3 id="大一生活"><a href="#大一生活" class="headerlink" title="大一生活"></a>大一生活</h3><p>随着时间的推移，自己也逐步的适应了大学生活。军训完美的结束，我并没有缺席，跟大家一样，我也拥有了自己大学四年的舍友、老师、同学。后来的生活基本都是一个调调：上课、吃饭、社团。我大一加入了好几个社团：</p>
-<ul>
-<li>计算机协会； </li>
-<li>吉他协会；  </li>
-<li>青年志愿者协会；  </li>
-</ul>
-<p>后来大多数的时间都在青年志愿者协会，因为那里的人比较有趣，而且能够做一些力所能及、对社会有益的事情。</p>
-<h2 id="大二，我是一个”部长”"><a href="#大二，我是一个”部长”" class="headerlink" title="大二，我是一个”部长”"></a>大二，我是一个”部长”</h2><p>大二应该说是玩的最嗨的一年。</p>
-<h2 id="大三，我是一个”助理辅导员”"><a href="#大三，我是一个”助理辅导员”" class="headerlink" title="大三，我是一个”助理辅导员”"></a>大三，我是一个”助理辅导员”</h2><p>  // TODO </p>
-<h2 id="大四，我是一个”优秀毕业生”"><a href="#大四，我是一个”优秀毕业生”" class="headerlink" title="大四，我是一个”优秀毕业生”"></a>大四，我是一个”优秀毕业生”</h2><p>// TODO</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1359,7 +1366,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1381,7 +1388,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
