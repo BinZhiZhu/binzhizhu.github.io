@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://binzhizhu.github.io/"/>
-  <updated>2019-06-30T07:20:15.652Z</updated>
+  <updated>2019-07-27T16:17:22.571Z</updated>
   <id>http://binzhizhu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>好难受 : ) VPS、服务器、域名，即将陆续过期</title>
+    <link href="http://binzhizhu.github.io/2019/07/28/%E5%A5%BD%E9%9A%BE%E5%8F%97-VPS%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%8D%B3%E5%B0%86%E9%99%86%E7%BB%AD%E8%BF%87%E6%9C%9F/"/>
+    <id>http://binzhizhu.github.io/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/</id>
+    <published>2019-07-27T16:13:33.000Z</published>
+    <updated>2019-07-27T16:17:22.571Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h2><p><img src="http://img.binzhizhu.top/imgs/2019/07/b2160b1f9b545d3a.png" alt="">  </p><p>bwg 购入的，体验 90 分，平时开发、porn 一下也是差不多的了，6 月被关进小黑屋，在我就要放弃的那一刻，7 月竟然突然 ping 通了，我重燃希望之火。八月入月就要过期了，一直以为跟传统的续费方式一样（你就只能优惠一次，你不配继续享受优惠价格），刚刚登陆 dashboard 看了一下，有点开心嘿嘿，仍然是 19.99 $/ year，awesome ！</p><h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p><img src="http://img.binzhizhu.top/imgs/2019/07/49ed25f8ff1887a7.png" alt="">  </p><p>去年阿里云双 11，拼团撸羊毛撸了一个 1 核 2G 的 ECS 学习机，当时记得是 90 多一年，不过后面返利什么的，不知不觉就回本了~~~。刚看了一下，续费的话需要将近 900 左右，这谁顶不住呀 ：~，所以打算今年双 11 再撸一把，然后迁移过去新的机器，我没有这方面的经验，想请教下 v 站的哥哥们。服务器搭了博客、v2ray、图床、frp 内网穿透、以及一些自己的独立项目等乱七八糟的东西，所以我有点怕，拜托各位咯🙏~</p><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>域名这块的其实还好，也是阿里云的，没有入手顶级域名，所以续费也没有很大的问题。之前看 v 站有些朋友发华为云推域名的活动，我也撸了一下，认证后免费撸了一个.com 域名（ 3 年吧记得），不过一直没有去搭理，备案啥的，这个也无所谓，到时有空再搞一下。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;VPS&quot;&gt;&lt;a href=&quot;#VPS&quot; class=&quot;headerlink&quot; title=&quot;VPS&quot;&gt;&lt;/a&gt;VPS&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://img.binzhizhu.top/imgs/2019/07/b2160b1f9b545d3a.p
+      
+    
+    </summary>
+    
+    
+      <category term="分享" scheme="http://binzhizhu.github.io/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>优雅的提交你的Git-commit</title>
@@ -540,32 +563,6 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://binzhizhu.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="weui" scheme="http://binzhizhu.github.io/tags/weui/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>探讨Tencent/weui.js</title>
-    <link href="http://binzhizhu.github.io/2018/11/30/%E6%8E%A2%E8%AE%A8Tencent-weui-js/"/>
-    <id>http://binzhizhu.github.io/2018/11/30/探讨Tencent-weui-js/</id>
-    <published>2018-11-29T16:10:09.000Z</published>
-    <updated>2018-11-29T16:37:05.095Z</updated>
-    
-    <content type="html"><![CDATA[<p>##认识WeUI</p><p>  WeUI 的轻量级 js 封装。<br>  <em>注意：由于微信小程序不支持dom操作，所以weui.js并不适用于小程序。不过WeUI也为小程序开发了另外的版本，详情请看：<a href="https://github.com/Tencent/weui-wxss/" target="_blank" rel="noopener">https://github.com/Tencent/weui-wxss/</a></em><br>  手机预览：<a href="https://weui.io/weui.js/" target="_blank" rel="noopener">https://weui.io/weui.js/</a></p><p>##安装</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Tencent/weui.js.git</span><br><span class="line">cd weui.js</span><br><span class="line">npm install</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure><p>##编译</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure><p>##使用</p><h3 id="global"><a href="#global" class="headerlink" title="global"></a>global</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://res.wx.qq.com/open/libs/weui/1.1.3/weui.min.css&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;https://res.wx.qq.com/open/libs/weuijs/1.1.4/weui.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    weui.alert(&apos;alert&apos;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><h3 id="import-as-module"><a href="#import-as-module" class="headerlink" title="import as module"></a>import as module</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &apos;weui&apos;;</span><br><span class="line">import weui from &apos;weui.js&apos;;</span><br><span class="line"></span><br><span class="line">weui.alert(&apos;alert&apos;);</span><br></pre></td></tr></table></figure><p>##文档</p><p>[文档]：<a href="https://github.com/Tencent/weui.js/blob/master/docs/README.md" target="_blank" rel="noopener">https://github.com/Tencent/weui.js/blob/master/docs/README.md</a></p><p>##Github</p><p>[github]：<a href="https://github.com/Tencent/weui.js" target="_blank" rel="noopener">https://github.com/Tencent/weui.js</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;##认识WeUI&lt;/p&gt;
-&lt;p&gt;  WeUI 的轻量级 js 封装。&lt;br&gt;  &lt;em&gt;注意：由于微信小程序不支持dom操作，所以weui.js并不适用于小程序。不过WeUI也为小程序开发了另外的版本，详情请看：&lt;a href=&quot;https://github.com/Ten
-      
     
     </summary>
     
