@@ -342,6 +342,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/29/折腾了一天，撸了个v2ex小程序/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/29/折腾了一天，撸了个v2ex小程序/" itemprop="url">折腾了一天，撸了个v2ex小程序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T21:45:53+08:00">
+                2019-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/29/折腾了一天，撸了个v2ex小程序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/29/折腾了一天，撸了个v2ex小程序/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/29/折腾了一天，撸了个v2ex小程序/" class="leancloud_visitors" data-flag-title="折腾了一天，撸了个v2ex小程序">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  314
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="V2EX小程序"><a href="#V2EX小程序" class="headerlink" title="V2EX小程序"></a>V2EX小程序</h2><p>基于Taro实现的v2ex小程序</p>
+<h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>Taro-v2ex-weapp: <a href="https://github.com/BinZhiZhu/Taro-v2ex-weapp" target="_blank" rel="noopener">https://github.com/BinZhiZhu/Taro-v2ex-weapp</a></p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>├── dist                   编译结果目录<br>├── config                 配置目录<br>|   ├── dev.js             开发时配置<br>|   ├── index.js           默认配置<br>|   └── prod.js            打包时配置<br>├── src                    源码目录<br>|   ├── pages              页面文件目录<br>|   |   ├── index          index 页面目录<br>|   |   |   ├── index.js   index 页面逻辑<br>|   |   |   └── index.css  index 页面样式<br>|   ├── app.css            项目总通用样式<br>|   └── app.js             项目入口文件<br>└── package.json  </p>
+<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><p>Taro(React) + typescript（部分）</p>
+<p>状态管理：Redux</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>v2ex开放API支持(如果侵权请联系本人修正)</p>
+<h2 id="DEPLOY"><a href="#DEPLOY" class="headerlink" title="DEPLOY"></a>DEPLOY</h2><ul>
+<li><p>安装Taro(参考官方)</p>
+</li>
+<li><p>dev环境: npm run dev:weapp</p>
+</li>
+<li><p>打包： npm run build:weapp</p>
+</li>
+</ul>
+<h3 id="开发时间线"><a href="#开发时间线" class="headerlink" title="开发时间线"></a>开发时间线</h3><p>1.首页最新主题</p>
+<p>2.主题详情</p>
+<p>3.热门主题</p>
+<p>4.节点</p>
+<p>5.节点详情</p>
+<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><ul>
+<li><p>首页: <img src="http://img.binzhizhu.top/imgs/2019/06/54b6624c1e3bf106.png" alt=""></p>
+</li>
+<li><p>热门: <img src="http://img.binzhizhu.top/imgs/2019/06/03d291e0ea9fb45d.png" alt=""></p>
+</li>
+<li><p>节点: <img src="http://img.binzhizhu.top/imgs/2019/06/b9e187a6a727d0ee.png" alt=""></p>
+</li>
+<li><p>节点详情: <img src="http://img.binzhizhu.top/imgs/2019/06/85a2c7f481a50797.png" alt=""></p>
+</li>
+</ul>
+<ul>
+<li>话题回复: <img src="http://img.binzhizhu.top/imgs/2019/06/04b64c2985121708.png" alt=""></li>
+<li></li>
+<li>个人主页: <img src="http://img.binzhizhu.top/imgs/2019/06/29748a4f9195f604.png" alt=""></li>
+<li>h5-首页: <img src="http://img.binzhizhu.top/imgs/2019/06/f40382d6240bbdc8.jpg" alt=""></li>
+<li>h5-热门： <img src="http://img.binzhizhu.top/imgs/2019/06/7bdea439e6db9f65.jpg" alt=""></li>
+<li>h5-节点：<img src="http://img.binzhizhu.top/imgs/2019/06/58a217abf6146bc1.jpg" alt=""></li>
+</ul>
+<h3 id="release"><a href="#release" class="headerlink" title="release"></a>release</h3><p>发布版本</p>
+<ul>
+<li>1.0.0 </li>
+</ul>
+<p><img src="http://img.binzhizhu.top/imgs/2019/06/3c9ddb8b3d48dc3e.jpg" alt=""></p>
+<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>1.下拉加载</p>
+<p>2.TypeScript 重构</p>
+<p>3.拆分组件</p>
+<p>4.H5版本</p>
+<ol start="4">
+<li>TDD</li>
+</ol>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><ul>
+<li><p>计算时间戳时分秒func来源于v2er封装 原贴 <a href="https://www.v2ex.com/t/578465#reply6" target="_blank" rel="noopener">https://www.v2ex.com/t/578465#reply6</a></p>
+</li>
+<li><p>utils下的api.ts封装来源于 taro官方taro-v2ex-hook repo里的简单封装</p>
+</li>
+</ul>
+<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><ul>
+<li><p>v2ex  <a href="https://www.v2ex.com/p/7v9TEc53" target="_blank" rel="noopener">https://www.v2ex.com/p/7v9TEc53</a></p>
+</li>
+<li><p>taro  <a href="https://nervjs.github.io/taro/docs/GETTING-STARTED.html" target="_blank" rel="noopener">https://nervjs.github.io/taro/docs/GETTING-STARTED.html</a></p>
+</li>
+</ul>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>MIT</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/24/MongoDB基础学习笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1078,189 +1311,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/06/cypress-file-upload真的香/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/06/cypress-file-upload真的香/" itemprop="url">cypress-file-upload真的香</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-06T21:14:30+08:00">
-                2019-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/06/cypress-file-upload真的香/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/06/cypress-file-upload真的香/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/06/06/cypress-file-upload真的香/" class="leancloud_visitors" data-flag-title="cypress-file-upload真的香">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  809
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="cypress-file-upload-是什么"><a href="#cypress-file-upload-是什么" class="headerlink" title="cypress-file-upload 是什么"></a>cypress-file-upload 是什么</h2><p>之前有写过一遍博客大致介绍了cypress是什么：前端e2e测试框架(歪果仁开发)。  </p>
-<p>最近因为有个项目因为改版的原因，差不多到上线的节点了，所以还是希望把测试维护起来。e2e实际上就是end to end 嘛，你如果直接理解为验收测试也不为过。众所周知咯，维护前端测试实际上是一件很麻烦的事情，因为有复杂的业务、复杂的UI交互，人工测试实在是太耗时费力(成本)，另外前端项目是比较不那么stable 的。因为前端样式是可能时常变化的，今天断言的这个按钮是红色、明天可能是白色了。所以对于小型公司来说的话，建议是在一个stable 的阶段去维护比较有收益，最近的项目改版就是一个有力的例子。V1版本维护了一套stable的测试用例，突然说需要改版，基本是换肤，对于UI来说基本是不一致的了，这导致之前维护的版本的测试基本是需要重新维护的了。</p>
-<h2 id="为什么要使用cypress-file-upload"><a href="#为什么要使用cypress-file-upload" class="headerlink" title="为什么要使用cypress-file-upload"></a>为什么要使用cypress-file-upload</h2><p>前端很多场景是需要上传文件的，最通常的就是上传图片。也就是说我们写测试的过程中，例如填写一个表单，需要上传图片，然后才能提交到后台。所以我们是需要模拟上传图片的，简单来说就是把这个事情自动化，本来我们就是自动化测试嘛。之前也写过一些cypress简单的用例，但是上传图片之前没去琢磨过，于是我就去gayhub疯狂的search issues ，大致关键词就是：”cypress how to upload file”。果不其然，还是挺多歪果仁提过这个issue的，所以我就大致认真的看了一下，因为都是英文，所以还是得认真的去消化 ：）。我发现了一个关键的issue：<a href="https://github.com/cypress-io/cypress/issues/170" target="_blank" rel="noopener">https://github.com/cypress-io/cypress/issues/170</a>  然后摸石头过河，发现有些朋友贴出的好的idea ：cypress-file-upload , 直接npm install - -save -dev cypress-file-upload 就可以，具体可以直接Google咯。</p>
-<p>首先先 npm 安装 cypress-file-upload 哦</p>
-<p>大致的用法是，这里贴一下代码块：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  上传图片 【自己封了一层】</span><br><span class="line"> *</span><br><span class="line"> *  参考  https://github.com/cypress-io/cypress/issues/170</span><br><span class="line"> */</span><br><span class="line">Cypress.Commands.add(&apos;uploadFile&apos;, (fileName, fileType, selector,subjectType) =&gt; &#123;</span><br><span class="line">  cy.fixture(fileName).then(fileContent =&gt; &#123;</span><br><span class="line">    // console.log(&apos;fileContent&apos;,fileContent)</span><br><span class="line">    cy.get(selector).upload(</span><br><span class="line">      &#123; fileContent, fileName, mimeType: fileType &#125;,</span><br><span class="line">      &#123; subjectType: subjectType &#125;,</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   //模拟图片上传</span><br><span class="line">    const fileName = &apos;images/logo.png&apos;;</span><br><span class="line">    const fileType = &apos;image/png&apos;;</span><br><span class="line">    const subjectType = &apos;input&apos;;</span><br><span class="line">    const selector = &apos;input[type=&quot;file&quot;]&apos;</span><br><span class="line"></span><br><span class="line">    cy.uploadFile(fileName,fileType,selector,subjectType)</span><br></pre></td></tr></table></figure>
-<p>有几点注意的：</p>
-<ol>
-<li>uploadFile是自己封装的func，需要统一放在commands.js [官方提供的diy func]</li>
-<li>此时直接使用cy.get(…).upload(‘’) 是会报错的 找不到upload 方法，我们需要在commands.js 引入 import ‘cypress-file-upload’ ，之前我也以为npm 安装了即可，但是后来去gayhub 发现需要在commands import一次</li>
-</ol>
-<p>最后大功告成咯 ： ）  ci 上跑了一波 没啥问题 大功告成 cypress真的香哦 </p>
-<video src="/Users/apple/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/2ae4ac7ee7b52045568b2f00f252714c/Message/MessageTemp/f86605ec697634cf912542f2dc13a2a1/Video/master_certify_center.js_1559822306858595.mp4"></video>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1313,7 +1363,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1335,7 +1385,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

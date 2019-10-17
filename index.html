@@ -342,6 +342,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/10/17/JavaScript纯原生的Base64编码加密解密封装代码片段/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/17/JavaScript纯原生的Base64编码加密解密封装代码片段/" itemprop="url">JavaScript纯原生的Base64编码加密解密封装代码片段</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T10:37:34+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/17/JavaScript纯原生的Base64编码加密解密封装代码片段/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/17/JavaScript纯原生的Base64编码加密解密封装代码片段/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/17/JavaScript纯原生的Base64编码加密解密封装代码片段/" class="leancloud_visitors" data-flag-title="JavaScript纯原生的Base64编码加密解密封装代码片段">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  457
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Base64 = &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// private property</span></span><br><span class="line">  _keyStr: <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="</span>,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// public method for encoding</span></span><br><span class="line">  encode: <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> output = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> chr1, chr2, chr3, enc1, enc2, enc3, enc4;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    input = Base64._utf8_encode(input);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; input.length) &#123;</span><br><span class="line"></span><br><span class="line">      chr1 = input.charCodeAt(i++);</span><br><span class="line">      chr2 = input.charCodeAt(i++);</span><br><span class="line">      chr3 = input.charCodeAt(i++);</span><br><span class="line"></span><br><span class="line">      enc1 = chr1 &gt;&gt; <span class="number">2</span>;</span><br><span class="line">      enc2 = ((chr1 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span>) | (chr2 &gt;&gt; <span class="number">4</span>);</span><br><span class="line">      enc3 = ((chr2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">2</span>) | (chr3 &gt;&gt; <span class="number">6</span>);</span><br><span class="line">      enc4 = chr3 &amp; <span class="number">63</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">isNaN</span>(chr2)) &#123;</span><br><span class="line">        enc3 = enc4 = <span class="number">64</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isNaN</span>(chr3)) &#123;</span><br><span class="line">        enc4 = <span class="number">64</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      output = output +</span><br><span class="line">          <span class="keyword">this</span>._keyStr.charAt(enc1) + <span class="keyword">this</span>._keyStr.charAt(enc2) +</span><br><span class="line">          <span class="keyword">this</span>._keyStr.charAt(enc3) + <span class="keyword">this</span>._keyStr.charAt(enc4);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// public method for decoding</span></span><br><span class="line">  decode: <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> output = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> chr1, chr2, chr3;</span><br><span class="line">    <span class="keyword">var</span> enc1, enc2, enc3, enc4;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    input = input.replace(<span class="regexp">/[^A-Za-z0-9\+\/\=]/g</span>, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; input.length) &#123;</span><br><span class="line"></span><br><span class="line">      enc1 = <span class="keyword">this</span>._keyStr.indexOf(input.charAt(i++));</span><br><span class="line">      enc2 = <span class="keyword">this</span>._keyStr.indexOf(input.charAt(i++));</span><br><span class="line">      enc3 = <span class="keyword">this</span>._keyStr.indexOf(input.charAt(i++));</span><br><span class="line">      enc4 = <span class="keyword">this</span>._keyStr.indexOf(input.charAt(i++));</span><br><span class="line"></span><br><span class="line">      chr1 = (enc1 &lt;&lt; <span class="number">2</span>) | (enc2 &gt;&gt; <span class="number">4</span>);</span><br><span class="line">      chr2 = ((enc2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">4</span>) | (enc3 &gt;&gt; <span class="number">2</span>);</span><br><span class="line">      chr3 = ((enc3 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">6</span>) | enc4;</span><br><span class="line"></span><br><span class="line">      output = output + <span class="built_in">String</span>.fromCharCode(chr1);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (enc3 != <span class="number">64</span>) &#123;</span><br><span class="line">        output = output + <span class="built_in">String</span>.fromCharCode(chr2);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (enc4 != <span class="number">64</span>) &#123;</span><br><span class="line">        output = output + <span class="built_in">String</span>.fromCharCode(chr3);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    output = Base64._utf8_decode(output);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// private method for UTF-8 encoding</span></span><br><span class="line">  _utf8_encode: <span class="function"><span class="keyword">function</span> (<span class="params">string</span>) </span>&#123;</span><br><span class="line">    string = string.replace(<span class="regexp">/\r\n/g</span>, <span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">var</span> utftext = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; string.length; n++) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> c = string.charCodeAt(n);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (c &lt; <span class="number">128</span>) &#123;</span><br><span class="line">        utftext += <span class="built_in">String</span>.fromCharCode(c);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((c &gt; <span class="number">127</span>) &amp;&amp; (c &lt; <span class="number">2048</span>)) &#123;</span><br><span class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &gt;&gt; <span class="number">6</span>) | <span class="number">192</span>);</span><br><span class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &amp; <span class="number">63</span>) | <span class="number">128</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &gt;&gt; <span class="number">12</span>) | <span class="number">224</span>);</span><br><span class="line">        utftext += <span class="built_in">String</span>.fromCharCode(((c &gt;&gt; <span class="number">6</span>) &amp; <span class="number">63</span>) | <span class="number">128</span>);</span><br><span class="line">        utftext += <span class="built_in">String</span>.fromCharCode((c &amp; <span class="number">63</span>) | <span class="number">128</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> utftext;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// private method for UTF-8 decoding</span></span><br><span class="line">  _utf8_decode: <span class="function"><span class="keyword">function</span> (<span class="params">utftext</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> string = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> c = c1 = c2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; utftext.length) &#123;</span><br><span class="line"></span><br><span class="line">      c = utftext.charCodeAt(i);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (c &lt; <span class="number">128</span>) &#123;</span><br><span class="line">        string += <span class="built_in">String</span>.fromCharCode(c);</span><br><span class="line">        i++;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((c &gt; <span class="number">191</span>) &amp;&amp; (c &lt; <span class="number">224</span>)) &#123;</span><br><span class="line">        c2 = utftext.charCodeAt(i + <span class="number">1</span>);</span><br><span class="line">        string += <span class="built_in">String</span>.fromCharCode(((c &amp; <span class="number">31</span>) &lt;&lt; <span class="number">6</span>) | (c2 &amp; <span class="number">63</span>));</span><br><span class="line">        i += <span class="number">2</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        c2 = utftext.charCodeAt(i + <span class="number">1</span>);</span><br><span class="line">        c3 = utftext.charCodeAt(i + <span class="number">2</span>);</span><br><span class="line">        string += <span class="built_in">String</span>.fromCharCode(((c &amp; <span class="number">15</span>) &lt;&lt; <span class="number">12</span>) | ((c2 &amp; <span class="number">63</span>) &lt;&lt; <span class="number">6</span>) | (c3 &amp; <span class="number">63</span>));</span><br><span class="line">        i += <span class="number">3</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> string;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/08/31/To-Troll-不要断章取义、胡乱指责他人，做个通情达理的人/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1060,239 +1232,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/29/折腾了一天，撸了个v2ex小程序/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/29/折腾了一天，撸了个v2ex小程序/" itemprop="url">折腾了一天，撸了个v2ex小程序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T21:45:53+08:00">
-                2019-06-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/29/折腾了一天，撸了个v2ex小程序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/29/折腾了一天，撸了个v2ex小程序/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/06/29/折腾了一天，撸了个v2ex小程序/" class="leancloud_visitors" data-flag-title="折腾了一天，撸了个v2ex小程序">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  314
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="V2EX小程序"><a href="#V2EX小程序" class="headerlink" title="V2EX小程序"></a>V2EX小程序</h2><p>基于Taro实现的v2ex小程序</p>
-<h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>Taro-v2ex-weapp: <a href="https://github.com/BinZhiZhu/Taro-v2ex-weapp" target="_blank" rel="noopener">https://github.com/BinZhiZhu/Taro-v2ex-weapp</a></p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>├── dist                   编译结果目录<br>├── config                 配置目录<br>|   ├── dev.js             开发时配置<br>|   ├── index.js           默认配置<br>|   └── prod.js            打包时配置<br>├── src                    源码目录<br>|   ├── pages              页面文件目录<br>|   |   ├── index          index 页面目录<br>|   |   |   ├── index.js   index 页面逻辑<br>|   |   |   └── index.css  index 页面样式<br>|   ├── app.css            项目总通用样式<br>|   └── app.js             项目入口文件<br>└── package.json  </p>
-<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><p>Taro(React) + typescript（部分）</p>
-<p>状态管理：Redux</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>v2ex开放API支持(如果侵权请联系本人修正)</p>
-<h2 id="DEPLOY"><a href="#DEPLOY" class="headerlink" title="DEPLOY"></a>DEPLOY</h2><ul>
-<li><p>安装Taro(参考官方)</p>
-</li>
-<li><p>dev环境: npm run dev:weapp</p>
-</li>
-<li><p>打包： npm run build:weapp</p>
-</li>
-</ul>
-<h3 id="开发时间线"><a href="#开发时间线" class="headerlink" title="开发时间线"></a>开发时间线</h3><p>1.首页最新主题</p>
-<p>2.主题详情</p>
-<p>3.热门主题</p>
-<p>4.节点</p>
-<p>5.节点详情</p>
-<h3 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h3><ul>
-<li><p>首页: <img src="http://img.binzhizhu.top/imgs/2019/06/54b6624c1e3bf106.png" alt=""></p>
-</li>
-<li><p>热门: <img src="http://img.binzhizhu.top/imgs/2019/06/03d291e0ea9fb45d.png" alt=""></p>
-</li>
-<li><p>节点: <img src="http://img.binzhizhu.top/imgs/2019/06/b9e187a6a727d0ee.png" alt=""></p>
-</li>
-<li><p>节点详情: <img src="http://img.binzhizhu.top/imgs/2019/06/85a2c7f481a50797.png" alt=""></p>
-</li>
-</ul>
-<ul>
-<li>话题回复: <img src="http://img.binzhizhu.top/imgs/2019/06/04b64c2985121708.png" alt=""></li>
-<li></li>
-<li>个人主页: <img src="http://img.binzhizhu.top/imgs/2019/06/29748a4f9195f604.png" alt=""></li>
-<li>h5-首页: <img src="http://img.binzhizhu.top/imgs/2019/06/f40382d6240bbdc8.jpg" alt=""></li>
-<li>h5-热门： <img src="http://img.binzhizhu.top/imgs/2019/06/7bdea439e6db9f65.jpg" alt=""></li>
-<li>h5-节点：<img src="http://img.binzhizhu.top/imgs/2019/06/58a217abf6146bc1.jpg" alt=""></li>
-</ul>
-<h3 id="release"><a href="#release" class="headerlink" title="release"></a>release</h3><p>发布版本</p>
-<ul>
-<li>1.0.0 </li>
-</ul>
-<p><img src="http://img.binzhizhu.top/imgs/2019/06/3c9ddb8b3d48dc3e.jpg" alt=""></p>
-<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>1.下拉加载</p>
-<p>2.TypeScript 重构</p>
-<p>3.拆分组件</p>
-<p>4.H5版本</p>
-<ol start="4">
-<li>TDD</li>
-</ol>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><ul>
-<li><p>计算时间戳时分秒func来源于v2er封装 原贴 <a href="https://www.v2ex.com/t/578465#reply6" target="_blank" rel="noopener">https://www.v2ex.com/t/578465#reply6</a></p>
-</li>
-<li><p>utils下的api.ts封装来源于 taro官方taro-v2ex-hook repo里的简单封装</p>
-</li>
-</ul>
-<h3 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h3><ul>
-<li><p>v2ex  <a href="https://www.v2ex.com/p/7v9TEc53" target="_blank" rel="noopener">https://www.v2ex.com/p/7v9TEc53</a></p>
-</li>
-<li><p>taro  <a href="https://nervjs.github.io/taro/docs/GETTING-STARTED.html" target="_blank" rel="noopener">https://nervjs.github.io/taro/docs/GETTING-STARTED.html</a></p>
-</li>
-</ul>
-<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>MIT</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1345,7 +1284,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1367,7 +1306,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
