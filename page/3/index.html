@@ -342,6 +342,364 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/23/Shell学习笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/23/Shell学习笔记/" itemprop="url">Shell学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-23T23:20:46+08:00">
+                2019-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/23/Shell学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/23/Shell学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/23/Shell学习笔记/" class="leancloud_visitors" data-flag-title="Shell学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  746
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Shell命令"><a href="#Shell命令" class="headerlink" title="Shell命令"></a>Shell命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br></pre></td></tr></table></figure>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>变量名:不需要使用$符号，"="不能有空格</span><br><span class="line">my_name="BinZhiZhu"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>输出:需要$符号</span><br><span class="line">echo $my_name</span><br></pre></td></tr></table></figure>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#单引号</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">'I try to learn shell '</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$str</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#双引号:可以有变量,可以有转义字符</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">"My name is \"<span class="variable">$my_name</span>\",Nice to meet u"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$str</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#拼接</span></span><br><span class="line"></span><br><span class="line">str1=<span class="string">"What's ur name,bro? My name is "</span><span class="variable">$my_name</span><span class="string">"!"</span></span><br><span class="line"></span><br><span class="line">str2=<span class="string">"What's ur name,bro? My name is "</span>&#123;<span class="variable">$my_name</span>&#125;<span class="string">"!"</span></span><br><span class="line"></span><br><span class="line">str3=<span class="string">"What's ur name,bro? My name is &#123;<span class="variable">$my_name</span>&#125;!"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$str1</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$str2</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$str3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#获取长度:$&#123;# + 变量&#125;</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">'qwer'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#str&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取子字符串:</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">"my name is <span class="variable">$my_name</span> "</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取名字：BinZhiZhu</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;str:11&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提取指定索引范围:name</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;str:3:5&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#括号括起来 元素之间用空格相隔</span></span><br><span class="line">array=(a b c d)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#可以直接赋值</span></span><br><span class="line">array1[0]=1</span><br><span class="line">array1[1]=2</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"所有元素为：<span class="variable">$&#123;array[*]&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"第一个元素为：<span class="variable">$&#123;array[0]&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"第二个元素为：<span class="variable">$&#123;array[1]&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"第三个元素为：<span class="variable">$&#123;array[2]&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"第四个元素为：<span class="variable">$&#123;array[3]&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h3 id="if的使用"><a href="#if的使用" class="headerlink" title="if的使用"></a>if的使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">运算符 : -gt:大于; -lt:小于; -eq:等于</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">if</span>使用</span></span><br><span class="line"></span><br><span class="line">a=6</span><br><span class="line">b=4</span><br><span class="line"></span><br><span class="line">if [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">     echo "a大于b咯"</span><br><span class="line">elif [ $a -eq $b ]</span><br><span class="line">then</span><br><span class="line">     echo "a等于b咯"</span><br><span class="line">elif [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">     echo "a小于b咯"</span><br><span class="line">else</span><br><span class="line">     echo "没有找到该条件判断"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">test</span>命令</span></span><br><span class="line"></span><br><span class="line">let num1=2*3</span><br><span class="line">let num2=3+3</span><br><span class="line"></span><br><span class="line">if test $num1 -eq $num2</span><br><span class="line">then</span><br><span class="line">    echo '两个数字相等!'</span><br><span class="line">else</span><br><span class="line">    echo '两个数字不相等!'</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">等价于</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let num3=2*3</span><br><span class="line">let num4=3+2</span><br><span class="line"></span><br><span class="line">if [ $num3 -eq $num4 ]</span><br><span class="line">then</span><br><span class="line">    echo '两个数字相等!'</span><br><span class="line">else</span><br><span class="line">    echo '两个数字不相等!'</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">arr=(1 2 3 4)</span><br><span class="line">for loop in $&#123;arr[*]&#125;</span><br><span class="line">do</span><br><span class="line">    echo "The Number is: $loop"</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">写成一行</span></span><br><span class="line">for loop in $&#123;arr[*]&#125;;do echo "Number is: $loop";done;</span><br></pre></td></tr></table></figure>
+<h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">当num小于等于5条件为<span class="literal">true</span></span></span><br><span class="line">num=1</span><br><span class="line"></span><br><span class="line"><span class="meta">while(($</span><span class="bash">num &lt;= 5 ))</span></span><br><span class="line">do</span><br><span class="line">   echo "num is:$num"</span><br><span class="line">   let num++</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">读取键盘信息</span></span><br><span class="line"></span><br><span class="line">echo '按下 &lt;CTRL-D&gt; 退出'</span><br><span class="line">echo -n '输入你最喜欢的网站名: '</span><br><span class="line">while read FILM</span><br><span class="line">do</span><br><span class="line">    echo "是的！$FILM 是一个好网站"</span><br><span class="line">    break</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h4 id="until循环"><a href="#until循环" class="headerlink" title="until循环"></a>until循环</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">until 循环执行一系列命令直至条件为 <span class="literal">true</span> 时停止，与<span class="keyword">while</span>相反</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">输入1-10数字咯</span></span><br><span class="line">a=0</span><br><span class="line">b=10</span><br><span class="line"></span><br><span class="line">until [ $a -eq $b ]</span><br><span class="line">do</span><br><span class="line">    echo " value is : $a"</span><br><span class="line">    let a++</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h4 id="case循环"><a href="#case循环" class="headerlink" title="case循环"></a>case循环</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">esac</span>的意思与<span class="keyword">case</span>相反 也就是结束执行</span></span><br><span class="line">echo "case 循环"</span><br><span class="line"></span><br><span class="line">echo '输入 1 到 4 之间的数字:'</span><br><span class="line">echo '你输入的数字为:'</span><br><span class="line">read aNum</span><br><span class="line">case $aNum in</span><br><span class="line">    1)  echo '你选择了 1'</span><br><span class="line">    ;;</span><br><span class="line">    2)  echo '你选择了 2'</span><br><span class="line">    ;;</span><br><span class="line">    3)  echo '你选择了 3'</span><br><span class="line">    ;;</span><br><span class="line">    4)  echo '你选择了 4'</span><br><span class="line">    ;;</span><br><span class="line">    *)  echo '你没有输入 1 到 4 之间的数字'</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#输入 1 到 5 之间的数字才可结束循环</span></span></span><br><span class="line">while :</span><br><span class="line">do</span><br><span class="line">    echo -n "输入 1 到 5 之间的数字:"</span><br><span class="line">    read aNum</span><br><span class="line">    case $aNum in</span><br><span class="line">        1|2|3|4|5) echo "你输入的数字为 $aNum!"</span><br><span class="line">        ;;</span><br><span class="line">        *) echo "你输入的数字不是 1 到 5 之间的! 游戏结束"</span><br><span class="line">            break</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h4 id="简单的删除文件"><a href="#简单的删除文件" class="headerlink" title="简单的删除文件"></a>简单的删除文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">filePath=&quot;del.php&quot;</span><br><span class="line"></span><br><span class="line">echo &apos;确认删除del.php文件吗？(y/n)&apos;</span><br><span class="line">read check</span><br><span class="line">case $check in</span><br><span class="line">     &apos;y&apos;)</span><br><span class="line">         rm $filePath;;</span><br><span class="line">     &apos;n&apos;)</span><br><span class="line">         echo &apos;取消删除&apos;;;</span><br><span class="line">      *)</span><br><span class="line">         echo &apos;请输入y/n&apos;;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<h2 id="DOC"><a href="#DOC" class="headerlink" title="DOC"></a>DOC</h2><p>[github-shell学习笔记]  <a href="https://github.com/BinZhiZhu/Shell_study_notes" target="_blank" rel="noopener">https://github.com/BinZhiZhu/Shell_study_notes</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/20/想自己独立开发个小程序咯/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="BinZhi Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BinZhiZhu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/20/想自己独立开发个小程序咯/" itemprop="url">想自己独立开发个小程序咯~</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T23:12:14+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/20/想自己独立开发个小程序咯/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/20/想自己独立开发个小程序咯/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/20/想自己独立开发个小程序咯/" class="leancloud_visitors" data-flag-title="想自己独立开发个小程序咯~">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  240
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="想法从而而来"><a href="#想法从而而来" class="headerlink" title="想法从而而来"></a>想法从而而来</h2><p>主要是做开发这么久了，自己还没有一个完整的独立开发的项目。有机会接触了几个月的Taro多端编译型框架的开发，语法是基于react的，所以开发起来也比较舒服，一次编码多端可见。所以突然琢磨了一下，抓一下空闲时间自己独立开发个小程序，但是缺少想法，不知道搞啥，今晚刚刚搞了个demo，因为太无聊，然后v站发了个帖子问问大家，交流下意见咯。h5撸了两个页面，主要是展示下组件而已，然后小程序预览了一下，不得不说Taro 是真的NB,几乎是没有差别的。</p>
+<p><img src="http://img.binzhizhu.top/imgs/2019/06/8c2dd7e1d22b3078.jpeg" alt=""></p>
+<p>贴一些交流的帖子吧 有好的想法才会有目标去完成。。希望自己能够坚持吧 </p>
+<p>[ v站交流帖子 ]：<a href="https://www.v2ex.com/t/576014#reply0" target="_blank" rel="noopener">https://www.v2ex.com/t/576014#reply0</a></p>
+<p>Fighting <del>~</del> 冲鸭</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/06/16/毕业一年，回首大学时光/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -888,456 +1246,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/04/20/CSS-BEM-书写规范/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/20/CSS-BEM-书写规范/" itemprop="url">CSS BEM 书写规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T22:07:48+08:00">
-                2019-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/20/CSS-BEM-书写规范/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/CSS-BEM-书写规范/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/20/CSS-BEM-书写规范/" class="leancloud_visitors" data-flag-title="CSS BEM 书写规范">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="BEM命名约定"><a href="#BEM命名约定" class="headerlink" title="BEM命名约定"></a>BEM命名约定</h2><hr>
-<p>使用 <a href="http://bem.info/" target="_blank" rel="noopener">BEM</a> 命名规范，理论上讲，每行 <code>css</code> 代码都只有一个选择器。</p>
-<p>BEM代表 <strong>“块（block）,元素（element）,修饰符（modifier）”</strong>,我们常用这三个实体开发组件。</p>
-<p>在选择器中，由以下三种符号来表示扩展的关系：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-   中划线 ：仅作为连字符使用，表示某个块或者某个子元素的多单词之间的连接记号。</span><br><span class="line">__  双下划线：双下划线用来连接块和块的子元素</span><br><span class="line">_   单下划线：单下划线用来描述一个块或者块的子元素的一种状态</span><br><span class="line"></span><br><span class="line">type-block__element_modifier</span><br></pre></td></tr></table></figure>
-<h3 id="块（block）"><a href="#块（block）" class="headerlink" title="块（block）"></a>块（block）</h3><p>一个块是设计或布局的一部分，它有具体且唯一地意义 ，要么是语义上的要么是视觉上的。</p>
-<p>在大多数情况下，任何独立的页面元素（或复杂或简单）都可以被视作一个块。它的HTML容器会有一个唯一的CSS类名，也就是这个块的名字。</p>
-<p>针对块的CSS类名会加一些前缀（ <code>ui-</code>），这些前缀在CSS中有类似 <a href="https://github.com/Tencent/tmt-workflow/wiki/%E2%92%9B-%5B%E8%A7%84%E8%8C%83%5D--CSS-BEM-%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83" target="_blank" rel="noopener">命名空间</a> 的作用。</p>
-<p>一个块的正式（实际上是半正式的）定义有下面三个基本原则：</p>
-<ol>
-<li>CSS中只能使用类名（不能是ID）。</li>
-<li>每一个块名应该有一个命名空间（前缀）</li>
-<li>每一条CSS规则必须属于一个块。</li>
-</ol>
-<p>例如：一个自定义列表 <code>.list</code> 是一个块，通常自定义列表是算在 <code>mod</code> 类别的，在这种情况下，一个 <code>list</code> 列表的block写法应该为:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.list</span><br></pre></td></tr></table></figure>
-<h3 id="元素（element）"><a href="#元素（element）" class="headerlink" title="元素（element）"></a>元素（element）</h3><p>块中的子元素是块的子元素，并且子元素的子元素在 <code>bem</code> 里也被认为是块的直接子元素。<strong>一个块中元素的类名必须用父级块的名称作为前缀。</strong></p>
-<p>如上面的例子，<code>li.item</code> 是列表的一个子元素，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.list&#123;&#125;</span><br><span class="line">.list .item&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.list&#123;&#125;</span><br><span class="line">.list__item&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="修饰符（modifier）"><a href="#修饰符（modifier）" class="headerlink" title="修饰符（modifier）"></a>修饰符（modifier）</h3><p>一个“修饰符”可以理解为一个块的特定状态，标识着它持有一个特定的属性。</p>
-<p>用一个例子来解释最好不过了。一个表示按钮的块默认有三个大小：小，中，大。为了避免创建三个不同的块，最好是在块上加修饰符。这个修饰符应该有个名字（比如：<code>size</code> ）和值（ <code>small</code>，<code>normal</code> 或者 <code>big</code> ）。</p>
-<p>如上面的例子中，表示一个选中的列表，和一个激活的列表项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.list&#123;&#125;</span><br><span class="line">.list.select&#123;&#125;</span><br><span class="line">.list .item&#123;&#125;</span><br><span class="line">.list .item.active&#123;&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">.list&#123;&#125;</span><br><span class="line">.list_select&#123;&#125;</span><br><span class="line">.list__item&#123;&#125;</span><br><span class="line">.list__item_active&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="LESS-书写规范"><a href="#LESS-书写规范" class="headerlink" title="LESS 书写规范"></a>LESS 书写规范</h1><p>使用 <code>.less</code> 后缀的文件来存储变量、混合代码以及最终合并压缩。</p>
-<table>
-<thead>
-<tr>
-<th>子less</th>
-<th>注解</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>lib-base.less</code></td>
-<td>预定义的变量，例如颜色、字号、字体</td>
-</tr>
-<tr>
-<td><code>lib-mixins.less</code></td>
-<td>用于混合的代码，例如渐变、半透明的混合</td>
-</tr>
-<tr>
-<td><code>lib-reset.less</code></td>
-<td>初始化</td>
-</tr>
-<tr>
-<td><code>lib-ui.less</code></td>
-<td>颗粒化ui功能</td>
-</tr>
-<tr>
-<td><code>xxx.less</code></td>
-<td>模块样式</td>
-</tr>
-</tbody>
-</table>
-<p><code>.less</code> 文件的引用顺序会对最终编译的样式的作用域和优先级产生影响，请尽量按照由底层到自定义的顺序来引用。</p>
-<h2 id="关于风格"><a href="#关于风格" class="headerlink" title="关于风格"></a>关于风格</h2><h2 id="书写原则"><a href="#书写原则" class="headerlink" title="书写原则"></a>书写原则</h2><h5 id="1-原则上不会出现2层以上选择器嵌套"><a href="#1-原则上不会出现2层以上选择器嵌套" class="headerlink" title="1. 原则上不会出现2层以上选择器嵌套"></a>1. 原则上不会出现<code>2层以上</code>选择器嵌套</h5><p>使用<code>BEM</code>原则，用命名来解耦，所有类名都为一层，增加效率和复用性</p>
-<h5 id="2-两层选择器嵌套出现在-mod-xxx-item-current子元素的情况，如下："><a href="#2-两层选择器嵌套出现在-mod-xxx-item-current子元素的情况，如下：" class="headerlink" title="2. 两层选择器嵌套出现在.mod-xxx__item_current子元素的情况，如下："></a>2. 两层选择器嵌套出现在<code>.mod-xxx__item_current</code>子元素的情况，如下：</h5><p>使用<strong>推荐</strong>的嵌套写法</p>
-<p><strong>常规写法：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.xxx&#123;&#125;</span><br><span class="line">.xxx__item&#123;&#125;</span><br><span class="line">.xxx__item_current&#123;&#125;</span><br><span class="line">// 嵌套写法</span><br><span class="line">.xxx__item_current .mod-xxx__link&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>推荐：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.xxx&#123;&#125;</span><br><span class="line">.xxx__item&#123;&#125;</span><br><span class="line">.xxx__item_hightlight&#123;&#125;</span><br><span class="line">.xxx__product-name&#123;&#125;</span><br><span class="line">.xxx__link&#123;&#125;</span><br><span class="line">.xxx__ming-zi-ke-yi-hen-chang&#123;&#125;</span><br><span class="line"></span><br><span class="line">// 嵌套写法</span><br><span class="line">.xxx__item_current&#123;</span><br><span class="line">    .xxx__link&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对应的HTML结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;xxx&quot;&gt;</span><br><span class="line">    &lt;li class=&quot;xxx__item&quot;&gt;第一项</span><br><span class="line">        &lt;div class=&quot;xxx__product-name&quot;&gt;我是名称&lt;/div&gt;</span><br><span class="line">        &lt;span class=&quot;xxx__ming-zi-ke-yi-hen-chang&quot;&gt;看类名&lt;/span&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;xxx__link&quot;&gt;我是link&lt;/a&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;li class=&quot;xxx__item xxx__item_current&quot;&gt;第二项 且 当前选择项</span><br><span class="line">        &lt;div class=&quot;xxx__product-name&quot;&gt;我是名称&lt;/div&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;xxx__item-link&quot;&gt;我是link&lt;/a&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">    &lt;li class=&quot;xxx__item xxx__item_hightlight&quot;&gt;第三项 且 特殊高亮</span><br><span class="line">         &lt;div class=&quot;xxx__product-name&quot;&gt;我是名称&lt;/div&gt;</span><br><span class="line">        &lt;a href=&quot;#&quot; class=&quot;xxx__item-link&quot;&gt;我是link&lt;/a&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="BEM-解决问题"><a href="#BEM-解决问题" class="headerlink" title="BEM 解决问题"></a>BEM 解决问题</h2><p>组件之间的完全解耦，不会造成命名空间的污染，如：<code>.mod-xxx ul li</code> 的写法带来的潜在的嵌套风险。</p>
-<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>BEM 命名会使得 Class 类名变长，但经过 gzip 压缩后这个带宽开销可以忽略不计</p>
-<p>xxx__item_hightlight</p>
-<h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><ul>
-<li>更新文档只是有利于提高自己开发效率 有版权问题 请联系本人修正。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/04/20/MacOS-PhpStorm-快捷键/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="BinZhi Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BinZhiZhu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/20/MacOS-PhpStorm-快捷键/" itemprop="url">MacOS PhpStorm 快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T22:04:03+08:00">
-                2019-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/20/MacOS-PhpStorm-快捷键/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/MacOS-PhpStorm-快捷键/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/04/20/MacOS-PhpStorm-快捷键/" class="leancloud_visitors" data-flag-title="MacOS PhpStorm 快捷键">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  310
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>全局搜索（command + shift + F）</p>
-<p>显示类中的方法 （command + 7）</p>
-<p>函数追踪 （command +鼠标点击）</p>
-<p>单行注释/取消（command + /）</p>
-<p>输入行号跳到某一行（command + l）</p>
-<p>列出打开的文件（command + e）</p>
-<p>删除当前行（command + x）</p>
-<p>复制当前行（command + d）</p>
-<p>跳到变量申明处（command + b）</p>
-<p>格式化代码（command + option + l）</p>
-<p>关闭当前窗口 （command + w）</p>
-<p>项目刷新 （command + option + y）</p>
-<p>多行注释（command + option + /）</p>
-<p>查找//@todo标签（command + 6）</p>
-<p>列出左侧文件（command + 1）</p>
-<p>切换大小写（command + shift + u）</p>
-<p>复制（command + c）</p>
-<p>粘贴（command + v）</p>
-<p>撤销（command + z）</p>
-<p><strong>显示行号</strong></p>
-<p>IDE settings-&gt;Editor-&gt;General-&gt;Appearance-&gt;Show Line Number</p>
-<p><strong>换肤</strong></p>
-<p>IDE settings-&gt;Editor-&gt;Colors &amp; Fonts 下拉框选择即可。</p>
-<p><strong>设置字体大小</strong></p>
-<p>IDE settings-&gt;Editor-&gt;Colors &amp; Fonts-&gt;font 设置即可。</p>
-<p><strong>配置文件头默认注释</strong></p>
-<p>IDE settings-&gt;Editor-&gt;File and Code Templates-&gt;PHP File Header。</p>
-<p><strong>设置注释不顶格</strong></p>
-<p>IDE settings-&gt;Editor-&gt;Code Style-&gt;PHP 去掉勾 Line comment at first column。</p>
-<p><strong>去掉右上角游览器</strong></p>
-<p>IDE settings-&gt;tools -&gt;WebBrowsers  去掉选中即可。</p>
-<p><strong>PHPStorm + CodeSniffer</strong></p>
-<p><strong>设置</strong></p>
-<p>IDE settings-&gt;Languages &amp; Frameworks-&gt;PHP-&gt;CodeSniffer-&gt; 配置即可。</p>
-<p><strong>选择编码规范</strong></p>
-<p>IDE settings-&gt;Editor-&gt;Inspections-&gt;PHP-&gt;PHP Code Sniffer validation(打钩) -&gt;Coding Standard 选择规范（PEAR）</p>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
-<li>待更新</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1390,7 +1298,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1491,7 +1399,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
