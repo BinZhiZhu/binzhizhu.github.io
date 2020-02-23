@@ -105,7 +105,7 @@
 
 
 
-  <meta name="keywords" content="分享,">
+  <meta name="keywords" content="mysql,">
 
 
 
@@ -118,21 +118,18 @@
 
 
 
-<meta name="description" content="VPS   bwg 购入的，体验 90 分，平时开发、porn 一下也是差不多的了，6 月被关进小黑屋，在我就要放弃的那一刻，7 月竟然突然 ping 通了，我重燃希望之火。八月入月就要过期了，一直以为跟传统的续费方式一样（你就只能优惠一次，你不配继续享受优惠价格），刚刚登陆 dashboard 看了一下，有点开心嘿嘿，仍然是 19.99 $/ year，awesome ！ 服务器   去年阿里云">
-<meta name="keywords" content="分享">
+<meta name="description" content="1例子：update T set c=c+1 where id=2   与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们今天要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。如果接触 MySQL，那这两个词 肯定是绕不过的，我后面的内容里也会不断地和你强调。不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好难受 : ) VPS、服务器、域名，即将陆续过期">
-<meta property="og:url" content="http://binzhizhu.github.io/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/index.html">
+<meta property="og:title" content="post一条SQL更新语句是如何执行的？">
+<meta property="og:url" content="http://binzhizhu.github.io/2020/02/23/一条SQL更新语句是如何执行的？/index.html">
 <meta property="og:site_name" content="BinZhiZhu&#39;s Blog">
-<meta property="og:description" content="VPS   bwg 购入的，体验 90 分，平时开发、porn 一下也是差不多的了，6 月被关进小黑屋，在我就要放弃的那一刻，7 月竟然突然 ping 通了，我重燃希望之火。八月入月就要过期了，一直以为跟传统的续费方式一样（你就只能优惠一次，你不配继续享受优惠价格），刚刚登陆 dashboard 看了一下，有点开心嘿嘿，仍然是 19.99 $/ year，awesome ！ 服务器   去年阿里云">
+<meta property="og:description" content="1例子：update T set c=c+1 where id=2   与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们今天要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。如果接触 MySQL，那这两个词 肯定是绕不过的，我后面的内容里也会不断地和你强调。不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.binzhizhu.top/imgs/2019/07/b2160b1f9b545d3a.png">
-<meta property="og:image" content="http://img.binzhizhu.top/imgs/2019/07/49ed25f8ff1887a7.png">
-<meta property="og:updated_time" content="2019-07-27T16:17:22.571Z">
+<meta property="og:updated_time" content="2020-02-23T15:29:58.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="好难受 : ) VPS、服务器、域名，即将陆续过期">
-<meta name="twitter:description" content="VPS   bwg 购入的，体验 90 分，平时开发、porn 一下也是差不多的了，6 月被关进小黑屋，在我就要放弃的那一刻，7 月竟然突然 ping 通了，我重燃希望之火。八月入月就要过期了，一直以为跟传统的续费方式一样（你就只能优惠一次，你不配继续享受优惠价格），刚刚登陆 dashboard 看了一下，有点开心嘿嘿，仍然是 19.99 $/ year，awesome ！ 服务器   去年阿里云">
-<meta name="twitter:image" content="http://img.binzhizhu.top/imgs/2019/07/b2160b1f9b545d3a.png">
+<meta name="twitter:title" content="post一条SQL更新语句是如何执行的？">
+<meta name="twitter:description" content="1例子：update T set c=c+1 where id=2   与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们今天要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。如果接触 MySQL，那这两个词 肯定是绕不过的，我后面的内容里也会不断地和你强调。不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用">
 
 
 
@@ -162,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="http://binzhizhu.github.io/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/">
+  <link rel="canonical" href="http://binzhizhu.github.io/2020/02/23/一条SQL更新语句是如何执行的？/">
 
 
 
 
 
-  <title>好难受 : ) VPS、服务器、域名，即将陆续过期 | BinZhiZhu's Blog</title>
+  <title>post一条SQL更新语句是如何执行的？ | BinZhiZhu's Blog</title>
   
 
 
@@ -346,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/">
+    <link itemprop="mainEntityOfPage" href="http://binzhizhu.github.io/2020/02/23/一条SQL更新语句是如何执行的？/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="BinZhi Zhu">
@@ -363,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">好难受 : ) VPS、服务器、域名，即将陆续过期</h1>
+          <h1 class="post-title" itemprop="name headline">post一条SQL更新语句是如何执行的？</h1>
         
 
         <div class="post-meta">
@@ -375,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-28T00:13:33+08:00">
-                2019-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-23T22:27:24+08:00">
+                2020-02-23
               </time>
             
 
@@ -394,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/" itemprop="commentCount"></span>
+                <a href="/2020/02/23/一条SQL更新语句是如何执行的？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/23/一条SQL更新语句是如何执行的？/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,7 +400,7 @@
 
           
           
-             <span id="/2019/07/28/好难受-VPS、服务器、域名，即将陆续过期/" class="leancloud_visitors" data-flag-title="好难受 : ) VPS、服务器、域名，即将陆续过期">
+             <span id="/2020/02/23/一条SQL更新语句是如何执行的？/" class="leancloud_visitors" data-flag-title="post一条SQL更新语句是如何执行的？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  388
+                  874
                 </span>
               
 
@@ -449,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -470,11 +467,16 @@
       
 
       
-        <h2 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h2><p><img src="http://img.binzhizhu.top/imgs/2019/07/b2160b1f9b545d3a.png" alt="">  </p>
-<p>bwg 购入的，体验 90 分，平时开发、porn 一下也是差不多的了，6 月被关进小黑屋，在我就要放弃的那一刻，7 月竟然突然 ping 通了，我重燃希望之火。八月入月就要过期了，一直以为跟传统的续费方式一样（你就只能优惠一次，你不配继续享受优惠价格），刚刚登陆 dashboard 看了一下，有点开心嘿嘿，仍然是 19.99 $/ year，awesome ！</p>
-<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p><img src="http://img.binzhizhu.top/imgs/2019/07/49ed25f8ff1887a7.png" alt="">  </p>
-<p>去年阿里云双 11，拼团撸羊毛撸了一个 1 核 2G 的 ECS 学习机，当时记得是 90 多一年，不过后面返利什么的，不知不觉就回本了~~~。刚看了一下，续费的话需要将近 900 左右，这谁顶不住呀 ：~，所以打算今年双 11 再撸一把，然后迁移过去新的机器，我没有这方面的经验，想请教下 v 站的哥哥们。服务器搭了博客、v2ray、图床、frp 内网穿透、以及一些自己的独立项目等乱七八糟的东西，所以我有点怕，拜托各位咯🙏~</p>
-<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>域名这块的其实还好，也是阿里云的，没有入手顶级域名，所以续费也没有很大的问题。之前看 v 站有些朋友发华为云推域名的活动，我也撸了一下，认证后免费撸了一个.com 域名（ 3 年吧记得），不过一直没有去搭理，备案啥的，这个也无所谓，到时有空再搞一下。</p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例子：update T set c=c+1 where id=2</span><br></pre></td></tr></table></figure>
+<p>  与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们今天要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。如果接触 MySQL，那这两个词 肯定是绕不过的，我后面的内容里也会不断地和你强调。不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。</p>
+<h2 id="重要的日志模块：redo-log（物理日志）"><a href="#重要的日志模块：redo-log（物理日志）" class="headerlink" title="重要的日志模块：redo log（物理日志）"></a>重要的日志模块：redo log（物理日志）</h2><p>1.核心要点：其实就是 MySQL 里经常说到的 WAL 技术，WAL 的全称 是 Write-Ahead Logging。也就是先记日志，再写到磁盘。具体来说，当有一条记录需要更新的时候，InnoDB 引擎就会先把记录写到redo log里面，并更新内存，这个时候更新就算完成了。同时，InnoDB 引擎会在适当的时候，将这个操作记录更新到磁盘里面，而这个更新往往是在系统比较空闲的时候做。<br>InnoDB的redo log是有固定大小的，例如可以一组配置4个文件，每个文件也有固定的大小，例如1GB,那么这一组就共有4GB内存（结合粉板理解）。写日志是从头开始写，写到末尾又开始回到开头循环写（大致就是顺时针的时钟概念）。主要操作分为：write pos和checkpoint，前者是写日志，后者理解为擦粉板，write pos 和 checkpoint 之间的是“粉板”上还空着的部分，可以用来记录新的操作。如 果 write pos 追上 checkpoint，表示“粉板”满了，这时候不能再执行新的更新，得停下 来先擦掉一些记录，把 checkpoint 推进一下。<br>有了 redo log，InnoDB 就可以保证即使数据库发生异常重启，之前提交的记录都不会丢 失，这个能力称为crash-safe。<br>2.将 redo log 的写入拆成了两个步骤： prepare 和 commit，这就是”两阶段提交”。执行器写完binlog之后，redo log执行commit操作。</p>
+<h2 id="重要的日志模块：binlog-逻辑归档日志"><a href="#重要的日志模块：binlog-逻辑归档日志" class="headerlink" title="重要的日志模块：binlog (逻辑归档日志)"></a>重要的日志模块：binlog (逻辑归档日志)</h2><p>  binlog是Server层自己的日志，没有crash-safe能力，后来有了InnoDB插件引擎，补充了这个能力，也就是实现了redo log日志系统。</p>
+<h2 id="两种日志的对比"><a href="#两种日志的对比" class="headerlink" title="两种日志的对比"></a>两种日志的对比</h2><ol>
+<li>redo log 是 InnoDB 引擎特有的；binlog 是 MySQL 的 Server 层实现的，所有引擎 都可以使用。   </li>
+<li>redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；binlog 是逻辑日志，记录的是这个语句的原始逻辑，比如“给 ID=2 这一行的 c 字段加 1 ”。  </li>
+<li>redo log 是循环写的，空间固定会用完；binlog 是可以追加写入的。“追加写”是指binlog文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
+</ol>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>redo log 用于保证 crash-safe 能力。innodb_flush_log_at_trx_commit 这个参数设置成 1 的时候，表示每次事务的 redo log 都直接持久化到磁盘。这个参数我建议你设置成 1， 这样可以保证 MySQL 异常重启之后数据不丢失。<br>sync_binlog 这个参数设置成 1 的时候，表示每次事务的 binlog 都持久化到磁盘。这个 参数我也建议你设置成 1，这样可以保证 MySQL 异常重启之后 binlog 不丢失。</p>
 
       
     </div>
@@ -492,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/分享/" rel="tag"># 分享</a>
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
         </div>
       
@@ -517,8 +519,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/30/优雅的提交你的Git-commit/" rel="next" title="优雅的提交你的Git-commit">
-                <i class="fa fa-chevron-left"></i> 优雅的提交你的Git-commit
+              <a href="/2020/02/22/一条SQL查询语句是如果执行的？/" rel="next" title="一条SQL查询语句是如果执行的">
+                <i class="fa fa-chevron-left"></i> 一条SQL查询语句是如果执行的
               </a>
             
           </div>
@@ -526,10 +528,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/29/GitHub-如何向开源项目提PR/" rel="prev" title="GitHub 如何向开源项目提PR">
-                GitHub 如何向开源项目提PR <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -701,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VPS"><span class="nav-number">1.</span> <span class="nav-text">VPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器"><span class="nav-number">2.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名"><span class="nav-number">3.</span> <span class="nav-text">域名</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的日志模块：redo-log（物理日志）"><span class="nav-number">1.</span> <span class="nav-text">重要的日志模块：redo log（物理日志）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重要的日志模块：binlog-逻辑归档日志"><span class="nav-number">2.</span> <span class="nav-text">重要的日志模块：binlog (逻辑归档日志)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种日志的对比"><span class="nav-number">3.</span> <span class="nav-text">两种日志的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
